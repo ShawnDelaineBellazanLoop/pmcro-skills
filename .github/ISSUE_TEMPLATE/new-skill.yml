@@ -1,0 +1,31 @@
+name: New skill proposal
+description: Propose a new skill package for the catalog
+title: "[skill]: "
+labels: ["new-skill"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed skill name (kebab-case)
+      placeholder: e.g. git, docker, filesystem
+    validations:
+      required: true
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Lane
+      options:
+        - Tools
+        - Frameworks
+        - Libraries
+        - Platform
+        - Testing
+    validations:
+      required: true
+  - type: textarea
+    id: usefor
+    attributes:
+      label: USE FOR / DO NOT USE FOR
+      description: Draft the description field per the required pattern.
+    validations:
+      required: true
