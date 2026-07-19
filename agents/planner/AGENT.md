@@ -15,6 +15,7 @@ selection) and turns it into an execution_plan for Maker to carry out.
 - execution_plan_json for the current cycle
 - Step ordering and dependency between steps
 - Flagging when a step requires human approval before Maker may proceed (TYPE1)
+- Resolving each step against catalog/skills.json to select which skill Maker invokes
 
 ## Does Not Own
 - Selecting the reasoning strategy or Trail (Orchestrator/O-Mode's job)
@@ -24,6 +25,11 @@ selection) and turns it into an execution_plan for Maker to carry out.
 ## Invariant Enforcement
 - PLAN-001: All plan parameters must be fully resolved — no `<placeholder>` values in
   execution_plan_json.
+- PLAN-002: Every step in execution_plan_json must resolve to a real skill in
+  catalog/skills.json, matched against that skill's USE FOR / DO NOT USE FOR
+  phrasing — or be marked `skill: null, needs_new_skill: true` if nothing matches.
+  Never invent a workaround step for Maker to improvise, and never route a step to a
+  role (Maker/Checker/Reflector) as if it were an interchangeable skill.
 - The Planner must not skip a required discovery/scan step even when the task looks
   simple.
 - Portability Law (../registry.md §5.1): no literal drive-letter paths in plan output.

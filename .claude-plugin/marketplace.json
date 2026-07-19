@@ -5,12 +5,12 @@
     "name": "PMCR-O AI Agent Company",
     "email": "shawn2024bellazan@gmail.com"
   },
-  "description": "PMCR-O catalog of reusable agent skills (git, skill-creator, plugin-packager) built to the dotnet-agent-skills convention, exposed here for Claude Code / Cowork.",
+  "description": "PMCR-O catalog of reusable agent skills (git, skill-creator, plugin-packager, pmcro-loop) built to the dotnet-agent-skills convention, exposed here for Claude Code / Cowork.",
   "version": "1.0.0",
   "plugins": [
     {
       "name": "skill-creator",
-      "source": "./catalog/Tools/Skill-Creator",
+      "source": "./catalog/Tools/Agent-Foundry/skills/skill-creator",
       "description": "Author new PMCR-O catalog skills (manifest.json + SKILL.md + scripts/references/assets), validate them against catalog/skills.schema.json, and update catalog/skills.json.",
       "version": "1.0.0",
       "category": "development",
@@ -18,7 +18,7 @@
     },
     {
       "name": "git",
-      "source": "./catalog/Tools/Git",
+      "source": "./catalog/Tools/Agent-Foundry/skills/git",
       "description": "Local version-control operations (status, add, commit, branch, diff, log) on a repository already on disk. Remote operations (push/pull/fetch/clone) are explicitly out of scope.",
       "version": "1.0.0",
       "category": "development",
@@ -26,8 +26,24 @@
     },
     {
       "name": "plugin-packager",
-      "source": "./catalog/Tools/Plugin-Packager",
+      "source": "./catalog/Tools/Agent-Foundry/skills/plugin-packager",
       "description": "Converts an existing PMCR-O catalog skill into a standalone Cowork/Claude Code .plugin package for sharing outside this repo.",
+      "version": "1.0.0",
+      "category": "development",
+      "strict": false
+    },
+    {
+      "name": "catalog-check",
+      "source": "./catalog/Tools/Agent-Foundry/skills/catalog-check",
+      "description": "Validates catalog/skills.json consistency and .pmcro/trails/ integrity (PLAN-002, TRAIL-001) in one combined pass/fail report. Read-only.",
+      "version": "1.0.0",
+      "category": "development",
+      "strict": false
+    },
+    {
+      "name": "pmcro-loop",
+      "source": "./catalog/Tools/Agent-Foundry/skills/pmcro-loop",
+      "description": "Gives whichever PMCR-O role (Planner/Maker/Checker/Reflector) the Orchestrator dispatched to its exact frame-file format and trail location. Supports /pmcro-loop <role> [trail-id] for explicit, session-boundary-safe invocation.",
       "version": "1.0.0",
       "category": "development",
       "strict": false

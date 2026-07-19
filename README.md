@@ -4,9 +4,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A standalone, versioned catalog of MAF-native agent skills for the **PMCR-O Colony**
-(Plan / Make / Check / Reflect / Orchestrate), built to the same package convention as
-[dotnet-agent-skills](https://github.com/) so it can be consumed by any MAF-based project —
-not just `ProjectName`.
+(Plan / Make / Check / Reflect / Orchestrate), built to a package convention similar to
+[managedcode/dotnet-skills](https://github.com/managedcode/dotnet-skills) so it can be
+consumed by any MAF-based project — not just `ProjectName`. (Note: the original citation
+here pointed at a bare, unresolved URL; this link was verified by web search and is the
+closest real match found, not a confirmed original source.)
 
 ## What lives here
 
@@ -29,6 +31,26 @@ Indexed centrally in [`catalog/skills.json`](catalog/skills.json), validated aga
 The five PMCR-O runtime roles — **Orchestrator, Planner, Maker, Checker, Reflector** — are
 compiled C# services in the consuming project, not MAF skill packages. They are never
 represented here. See `CONTRIBUTING.md` → *Naming Discipline*.
+
+## Plugin Marketplace
+
+This repo is also a real, functioning **Anthropic Claude Code / Cowork plugin
+marketplace** — not just a MAF skill catalog. `.claude-plugin/marketplace.json` follows
+Anthropic's official marketplace schema (`https://json.schemastore.org/claude-code-marketplace.json`,
+the same format used by `anthropics/claude-code` and `anthropics/claude-plugins-official`).
+Each of the 5 skills registered in `catalog/skills.json` (`skill-creator`, `git`,
+`plugin-packager`, `catalog-check`, `pmcro-loop`) has a matching entry there, using
+`strict: false` — meaning `marketplace.json` itself is the authority for each plugin's
+definition, so no per-skill `plugin.json` is required.
+
+To install from this marketplace in Claude Code:
+
+```
+/plugin marketplace add ShawnDelaineBellazanLoop/pmcro-skills
+/plugin install pmcro-loop@pmcro-skills
+```
+
+(Substitute any of the other 4 registered skill names for `pmcro-loop` above.)
 
 ## Consuming this catalog
 

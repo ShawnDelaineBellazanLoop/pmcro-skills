@@ -13,7 +13,7 @@
       "lane": "Tools",
       "description": "USE FOR: authoring a new skill package (manifest.json + SKILL.md + scripts/references/assets); updating an existing skill's frontmatter, workflow, or references; validating a skill against catalog/skills.schema.json before it's added to catalog/skills.json; deciding whether new capability belongs in .agents/skills/ (a skill) vs .pmcro/ (runtime policy/state) vs .pmcro/agents/ (one of the five fixed PMCR-O roles). DO NOT USE FOR: implementing the actual PMCR-O runtime (Orchestrator/Planner/Maker/Checker/Reflector) — those are compiled C# services, never skill packages. DO NOT USE FOR: executing a skill's own scripts. INVOKES: interview the requester on skill scope, draft SKILL.md + manifest.json from templates in assets/, validate against schema, update catalog/skills.json, report status.",
       "compatibility": "Targets Microsoft Agent Framework's AgentSkillsProvider (file-based skills). Requires Python 3.12+ and jsonschema to run validation scripts locally.",
-      "path": "catalog/Tools/Skill-Creator/skills/skill-creator/",
+      "path": "catalog/Tools/Agent-Foundry/skills/skill-creator/",
       "tokenCount": 2200
     },
     {
@@ -27,7 +27,7 @@
       "lane": "Tools",
       "description": "USE FOR: local version-control operations on a repository already present on disk — init, status, add/stage, commit, branch create/switch/list, diff, log. DO NOT USE FOR: any remote operation (push, pull, fetch, clone, remote add) or GitHub-specific actions (PRs, issues, releases) — explicitly out of scope for this skill. DO NOT USE FOR: resolving merge conflicts automatically or force-rewriting history (rebase -i, reset --hard, push --force) without explicit human confirmation per commit. INVOKES: run scripts/git_local.py against the target repo path with a whitelisted subcommand, report the resulting state (staged files, commit hash, branch, diff summary) back to the requester.",
       "compatibility": "Requires git installed and on PATH. Python 3.12+ to run scripts/git_local.py. Operates only on repositories already initialized or explicitly requested to be initialized on the local filesystem.",
-      "path": "catalog/Tools/Git/skills/git/",
+      "path": "catalog/Tools/Agent-Foundry/skills/git/",
       "tokenCount": 2100
     },
     {
@@ -41,8 +41,36 @@
       "lane": "Tools",
       "description": "USE FOR: converting an existing PMCR-O catalog skill (manifest.json + SKILL.md, dotnet-agent-skills convention) into a Cowork/Claude Code-compatible .plugin package (.claude-plugin/plugin.json + skills/<skill>/SKILL.md); answering whether a given catalog skill is plugin-compatible. DO NOT USE FOR: authoring a brand-new skill from scratch. DO NOT USE FOR: packaging the PMCR-O orchestrator/loop itself, which is a hosted C# runtime and cannot be exported as a plugin. INVOKES: read source manifest.json + SKILL.md, map fields into plugin.json, reconcile frontmatter, copy scripts/references/assets unchanged, zip as .plugin, present to requester.",
       "compatibility": "Requires Python 3.12+ and the zip utility. Reads from an existing catalog/<lane>/<package>/skills/<skill>/ directory -- does not create skill content, only repackages it.",
-      "path": "catalog/Tools/Plugin-Packager/skills/plugin-packager/",
+      "path": "catalog/Tools/Agent-Foundry/skills/plugin-packager/",
       "tokenCount": 1400
+    },
+    {
+      "name": "catalog-check",
+      "title": "Catalog Check",
+      "version": "1.0.0",
+      "category": "Meta",
+      "type": "Tool",
+      "package": "CatalogCheck",
+      "stack": "Python Scripts",
+      "lane": "Tools",
+      "description": "USE FOR: validating that catalog/skills.json is internally consistent (schema-valid, every path exists, every skill has manifest.json + SKILL.md, frontmatter matches the index, no duplicate names); validating that sealed trails under .pmcro/trails/ are well-formed and that their plan frames comply with PLAN-002 (every step names a real catalog skill or is explicitly flagged needs_new_skill). DO NOT USE FOR: authoring or editing skill content itself -- that's skill-creator's job, this only checks what already exists. DO NOT USE FOR: deciding whether a LOOP-worthy finding should become an EarnedConstraint -- this skill reports findings, Reflector (if invoked) decides what binds. INVOKES: run the repo-root scripts/validate_catalog.py for catalog-index consistency, run this skill's own scripts/validate_trails.py for trail integrity, report both results together as one pass/fail summary.",
+      "compatibility": "Requires Python 3.12+ and jsonschema (shared with the repo-root scripts/validate_catalog.py, which this skill invokes rather than duplicates). Operates read-only -- never modifies catalog/skills.json, trail files, or any skill content.",
+      "path": "catalog/Tools/Agent-Foundry/skills/catalog-check/",
+      "tokenCount": 2100
+    },
+    {
+      "name": "pmcro-loop",
+      "title": "PMCR-O Loop",
+      "version": "1.0.0",
+      "category": "Meta",
+      "type": "Tool",
+      "package": "PmcroLoop",
+      "stack": "MAF Agent Skills",
+      "lane": "Tools",
+      "description": "USE FOR: giving a role (Planner/Maker/Checker/Reflector) the exact file format and trail location to write once the Orchestrator has dispatched to it; starting or resuming a sealed Trail across a session boundary. DO NOT USE FOR: deciding whether to start a cycle, which Trail applies, or dispatch order -- that's the Orchestrator's own O-Mode reasoning. DO NOT USE FOR: the compiled ProjectName runtime, which is a real C# OrchestratorService via MAF, not a Claude session following markdown. INVOKES: read agents/{role}/AGENT.md at the repo root for the dispatched role, perform that role's work, write the corresponding frame file from assets/ templates per references/trail-schema.md, seal disposition.json on PASS.",
+      "compatibility": "No runtime dependency. Persona content is read from this repo's root agents/{role}/AGENT.md files, not duplicated in this skill. The acting agent writes trail files directly via its own filesystem tools.",
+      "path": "catalog/Tools/Agent-Foundry/skills/pmcro-loop/",
+      "tokenCount": 2400
     }
   ]
 }

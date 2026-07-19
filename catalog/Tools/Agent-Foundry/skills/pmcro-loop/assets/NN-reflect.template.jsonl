@@ -1,0 +1,1 @@
+{"trigger": "<what failed and why>", "constraint_id": "EC-<domain>-<NNN>", "binding": "<the rule that prevents recurrence, written so Planner/Maker can follow it directly>"}

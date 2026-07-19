@@ -1,0 +1,1 @@
+{"verdict": "<PASS|LOOP>", "criteria": [{"name": "<criterion>", "passed": true, "evidence": "<citation into make.jsonl>"}], "loop_count": 1}

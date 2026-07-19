@@ -1,0 +1,8 @@
+{
+  "trail_id": "<uuid>",
+  "source_type": "<source-type>",
+  "created_at": "<ISO-8601 timestamp>",
+  "goal": "<one-sentence statement of what this trail resolves>",
+  "context": "<why this trail exists>",
+  "trail_convention": "<which named Trail/procedure applies, if known>"
+}

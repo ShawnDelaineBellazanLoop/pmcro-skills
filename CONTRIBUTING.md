@@ -1,9 +1,11 @@
 # Contributing to pmcro-skills
 
-`pmcro-skills` is a standalone skill catalog for the PMCR-O Colony, built to the same
-convention as [dotnet-agent-skills](https://github.com/) — each skill is a self-contained
-package with a `manifest.json`, a `SKILL.md`, and a `references/` folder, indexed centrally
-in `catalog/skills.json`.
+`pmcro-skills` is a standalone skill catalog for the PMCR-O Colony, built to a convention
+similar to [managedcode/dotnet-skills](https://github.com/managedcode/dotnet-skills) —
+each skill is a self-contained package with a `manifest.json`, a `SKILL.md`, and a
+`references/` folder, indexed centrally in `catalog/skills.json`. (This link was a bare,
+unresolved placeholder before; verified by web search, not confirmed as the original
+source.)
 
 ## Adding a New Skill
 
