@@ -1,0 +1,20 @@
+{
+  "$schema": "./skills.schema.json",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "skill-creator",
+      "title": "Skill Creator",
+      "version": "1.0.0",
+      "category": "Meta",
+      "type": "Tool",
+      "package": "SkillCreator",
+      "stack": "MAF Agent Skills",
+      "lane": "Tools",
+      "description": "USE FOR: authoring a new skill package (manifest.json + SKILL.md + scripts/references/assets); updating an existing skill's frontmatter, workflow, or references; validating a skill against catalog/skills.schema.json before it's added to catalog/skills.json; deciding whether new capability belongs in .agents/skills/ (a skill) vs .pmcro/ (runtime policy/state) vs .pmcro/agents/ (one of the five fixed PMCR-O roles). DO NOT USE FOR: implementing the actual PMCR-O runtime (Orchestrator/Planner/Maker/Checker/Reflector) — those are compiled C# services, never skill packages. DO NOT USE FOR: executing a skill's own scripts. INVOKES: interview the requester on skill scope, draft SKILL.md + manifest.json from templates in assets/, validate against schema, update catalog/skills.json, report status.",
+      "compatibility": "Targets Microsoft Agent Framework's AgentSkillsProvider (file-based skills). Requires Python 3.12+ and jsonschema to run validation scripts locally.",
+      "path": "catalog/Tools/Skill-Creator/skills/skill-creator/",
+      "tokenCount": 2200
+    }
+  ]
+}
