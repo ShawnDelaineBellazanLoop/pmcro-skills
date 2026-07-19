@@ -29,6 +29,20 @@
       "compatibility": "Requires git installed and on PATH. Python 3.12+ to run scripts/git_local.py. Operates only on repositories already initialized or explicitly requested to be initialized on the local filesystem.",
       "path": "catalog/Tools/Git/skills/git/",
       "tokenCount": 2100
+    },
+    {
+      "name": "plugin-packager",
+      "title": "Plugin Packager",
+      "version": "1.0.0",
+      "category": "Meta",
+      "type": "Tool",
+      "package": "PluginPackager",
+      "stack": "Cowork / Claude Code Plugin Format",
+      "lane": "Tools",
+      "description": "USE FOR: converting an existing PMCR-O catalog skill (manifest.json + SKILL.md, dotnet-agent-skills convention) into a Cowork/Claude Code-compatible .plugin package (.claude-plugin/plugin.json + skills/<skill>/SKILL.md); answering whether a given catalog skill is plugin-compatible. DO NOT USE FOR: authoring a brand-new skill from scratch. DO NOT USE FOR: packaging the PMCR-O orchestrator/loop itself, which is a hosted C# runtime and cannot be exported as a plugin. INVOKES: read source manifest.json + SKILL.md, map fields into plugin.json, reconcile frontmatter, copy scripts/references/assets unchanged, zip as .plugin, present to requester.",
+      "compatibility": "Requires Python 3.12+ and the zip utility. Reads from an existing catalog/<lane>/<package>/skills/<skill>/ directory -- does not create skill content, only repackages it.",
+      "path": "catalog/Tools/Plugin-Packager/skills/plugin-packager/",
+      "tokenCount": 1400
     }
   ]
 }

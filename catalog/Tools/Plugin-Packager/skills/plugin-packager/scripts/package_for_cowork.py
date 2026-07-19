@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""
+package_for_cowork.py
+
+Converts a PMCR-O catalog skill (manifest.json + SKILL.md, dotnet-agent-skills
+convention) into a Cowork/Claude Code-compatible .plugin package
+(.claude-plugin/plugin.json + skills/<name>/SKILL.md).
+
+This is a structural repackage only. It does not rewrite the skill's
+instructional body -- it strips PMCR-O-specific frontmatter keys that
+Cowork's loader doesn't recognize, and re-shapes the manifest.
+
+Usage:
+    python package_for_cowork.py <source_skill_dir> <output_dir>
+
+Example:
+    python package_for_cowork.py \\
+        W:\\pmcro-skills\\catalog\\Tools\\Git\\skills\\git \\
+        W:\\pmcro-skills\\_exports
+
+Produces:
+    <output_dir>/<name>/.claude-plugin/plugin.json
+    <output_dir>/<name>/skills/<name>/SKILL.md (+ scripts/, references/, assets/ copied as-is)
+    <output_dir>/<name>/README.md
+    <output_dir>/<name>.plugin   (zip)
+"""
+
+import json
+import re
+import shutil
+import sys
+import zipfile
+from pathlib import Path
+
+# Frontmatter keys that only mean something inside PMCR-O / dotnet-agent-skills.
+# Cowork's SKILL.md loader only recognizes: name, description, compatibility.
+PMCRO_ONLY_FRONTMATTER_KEYS = {"Role", "Owns", "Does Not Own", "tools", "model", "skills"}
+
+
+def kebab_case(name: str) -> str:
+    """Sanitize a name to lowercase kebab-case."""
+    name = re.sub(r"[_\s]+", "-", name)
+    name = re.sub(r"(?<!^)(?=[A-Z])", "-", name)
+    return name.lower().strip("-")
+
+
+def parse_frontmatter(skill_md_text: str):
+    """Very small YAML-frontmatter splitter (assumes simple key: value pairs)."""
+    if not skill_md_text.startswith("---"):
+        return {}, skill_md_text
+    parts = skill_md_text.split("---", 2)
+    if len(parts) < 3:
+        return {}, skill_md_text
+    frontmatter_raw, body = parts[1], parts[2]
+    fm = {}
+    for line in frontmatter_raw.strip().splitlines():
+        if ":" in line:
+            key, _, val = line.partition(":")
+            fm[key.strip()] = val.strip().strip('"')
+    return fm, body.lstrip("\n")
+
+
+def load_manifest(source_dir: Path) -> dict:
+    manifest_path = source_dir / "manifest.json"
+    if manifest_path.exists():
+        return json.loads(manifest_path.read_text(encoding="utf-8"))
+    return {}
+
+
+def build_plugin_json(name: str, manifest: dict, frontmatter: dict) -> dict:
+    version = manifest.get("version") or "0.1.0"
+    description = frontmatter.get("description") or manifest.get("description") or ""
+    author = manifest.get("author")
+
+    plugin = {
+        "name": kebab_case(name),
+        "version": version,
+        "description": description,
+    }
+    if author:
+        plugin["author"] = {"name": author} if isinstance(author, str) else author
+    return plugin
+
+
+def rebuild_skill_md(frontmatter: dict, body: str) -> str:
+    """Emit a Cowork-compatible SKILL.md, dropping PMCR-O-only frontmatter keys."""
+    kept = {
+        k: v for k, v in frontmatter.items()
+        if k not in PMCRO_ONLY_FRONTMATTER_KEYS
+    }
+    # Ensure required keys exist
+    kept.setdefault("name", frontmatter.get("name", "unnamed-skill"))
+    kept.setdefault("description", frontmatter.get("description", ""))
+
+    lines = ["---"]
+    for k, v in kept.items():
+        # Quote if it contains a colon or starts oddly
+        if ":" in v or v.startswith(("USE FOR", "DO NOT")):
+            lines.append(f'{k}: "{v}"')
+        else:
+            lines.append(f"{k}: {v}")
+    lines.append("---")
+    lines.append("")
+    lines.append(body)
+    return "\n".join(lines)
+
+
+def package(source_dir: str, output_dir: str):
+    source = Path(source_dir)
+    out_root = Path(output_dir)
+
+    manifest = load_manifest(source)
+    skill_md_path = source / "SKILL.md"
+    if not skill_md_path.exists():
+        raise FileNotFoundError(f"No SKILL.md found at {skill_md_path}")
+
+    frontmatter, body = parse_frontmatter(skill_md_path.read_text(encoding="utf-8"))
+    raw_name = frontmatter.get("name") or source.name
+    name = kebab_case(raw_name)
+
+    plugin_dir = out_root / name
+    claude_plugin_dir = plugin_dir / ".claude-plugin"
+    skills_dir = plugin_dir / "skills" / name
+
+    for d in (claude_plugin_dir, skills_dir):
+        d.mkdir(parents=True, exist_ok=True)
+
+    # plugin.json
+    plugin_json = build_plugin_json(name, manifest, frontmatter)
+    (claude_plugin_dir / "plugin.json").write_text(
+        json.dumps(plugin_json, indent=2) + "\n", encoding="utf-8"
+    )
+
+    # SKILL.md (frontmatter reconciled, body untouched)
+    new_skill_md = rebuild_skill_md(frontmatter, body)
+    (skills_dir / "SKILL.md").write_text(new_skill_md, encoding="utf-8")
+
+    # Copy scripts/, references/, assets/ unchanged if present
+    for sub in ("scripts", "references", "assets"):
+        sub_src = source / sub
+        if sub_src.exists():
+            shutil.copytree(sub_src, skills_dir / sub, dirs_exist_ok=True)
+
+    # README
+    readme = (
+        f"# {name}\n\n"
+        f"Exported from PMCR-O catalog skill at `{source}`.\n\n"
+        f"This plugin was generated by `plugin-packager` — a structural repackage, "
+        f"not a rewrite. The instructional content in `skills/{name}/SKILL.md` matches "
+        f"the source SKILL.md body verbatim; only the frontmatter and manifest were "
+        f"reshaped for Cowork/Claude Code compatibility.\n"
+    )
+    (plugin_dir / "README.md").write_text(readme, encoding="utf-8")
+
+    # Zip as .plugin
+    plugin_zip_path = out_root / f"{name}.plugin"
+    with zipfile.ZipFile(plugin_zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        for file_path in plugin_dir.rglob("*"):
+            if file_path.is_file():
+                zf.write(file_path, file_path.relative_to(plugin_dir))
+
+    print(f"Packaged: {plugin_zip_path}")
+    return plugin_zip_path
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print(__doc__)
+        sys.exit(1)
+    package(sys.argv[1], sys.argv[2])
