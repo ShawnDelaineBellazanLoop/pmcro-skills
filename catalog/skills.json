@@ -15,6 +15,20 @@
       "compatibility": "Targets Microsoft Agent Framework's AgentSkillsProvider (file-based skills). Requires Python 3.12+ and jsonschema to run validation scripts locally.",
       "path": "catalog/Tools/Skill-Creator/skills/skill-creator/",
       "tokenCount": 2200
+    },
+    {
+      "name": "git",
+      "title": "Git (Local)",
+      "version": "1.0.0",
+      "category": "VersionControl",
+      "type": "Tool",
+      "package": "Git",
+      "stack": "Git CLI",
+      "lane": "Tools",
+      "description": "USE FOR: local version-control operations on a repository already present on disk — init, status, add/stage, commit, branch create/switch/list, diff, log. DO NOT USE FOR: any remote operation (push, pull, fetch, clone, remote add) or GitHub-specific actions (PRs, issues, releases) — explicitly out of scope for this skill. DO NOT USE FOR: resolving merge conflicts automatically or force-rewriting history (rebase -i, reset --hard, push --force) without explicit human confirmation per commit. INVOKES: run scripts/git_local.py against the target repo path with a whitelisted subcommand, report the resulting state (staged files, commit hash, branch, diff summary) back to the requester.",
+      "compatibility": "Requires git installed and on PATH. Python 3.12+ to run scripts/git_local.py. Operates only on repositories already initialized or explicitly requested to be initialized on the local filesystem.",
+      "path": "catalog/Tools/Git/skills/git/",
+      "tokenCount": 2100
     }
   ]
 }
