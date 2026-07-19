@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "pmcro-skills",
+  "owner": {
+    "name": "PMCR-O AI Agent Company",
+    "email": "shawn2024bellazan@gmail.com"
+  },
+  "description": "PMCR-O catalog of reusable agent skills (git, skill-creator, plugin-packager) built to the dotnet-agent-skills convention, exposed here for Claude Code / Cowork.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "skill-creator",
+      "source": "./catalog/Tools/Skill-Creator",
+      "description": "Author new PMCR-O catalog skills (manifest.json + SKILL.md + scripts/references/assets), validate them against catalog/skills.schema.json, and update catalog/skills.json.",
+      "version": "1.0.0",
+      "category": "development",
+      "strict": false
+    },
+    {
+      "name": "git",
+      "source": "./catalog/Tools/Git",
+      "description": "Local version-control operations (status, add, commit, branch, diff, log) on a repository already on disk. Remote operations (push/pull/fetch/clone) are explicitly out of scope.",
+      "version": "1.0.0",
+      "category": "development",
+      "strict": false
+    },
+    {
+      "name": "plugin-packager",
+      "source": "./catalog/Tools/Plugin-Packager",
+      "description": "Converts an existing PMCR-O catalog skill into a standalone Cowork/Claude Code .plugin package for sharing outside this repo.",
+      "version": "1.0.0",
+      "category": "development",
+      "strict": false
+    }
+  ]
+}
