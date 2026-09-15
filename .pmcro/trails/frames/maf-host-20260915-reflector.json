@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-maf-host-20260915-reflector",
+  "cycle_id": "cyc-maf-host-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Earned constraints: a registry that carries paths must name the base those paths resolve against, because 'relative to the registry or plugin root' fails as a missing-file error that reads like a packaging bug; every declared envelope type resolves to a schema or the declaration is a hole where untyped state re-enters; tool authority is declared in skill frontmatter so the boundary is a property of the package rather than a sentence in a document; and a capability plugin vendored into the tree is reported, not silently governed. Also: the environment moved - a blocker recorded in an earlier cycle was re-probed rather than inherited, and the .NET SDK gap was gone.",
+  "evidence_refs": [".pmcro/trails/frames/maf-host-20260915-checker.json"],
+  "source_refs": [".pmcro/laws/constitution.md", ".pmcro/trails/constraints/earned-constraints.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:24:00Z"
+}

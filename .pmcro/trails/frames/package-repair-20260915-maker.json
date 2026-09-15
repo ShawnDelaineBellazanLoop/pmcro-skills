@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-package-repair-20260915-maker",
+  "cycle_id": "cyc-package-repair-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Added .pmcro/schemas/artifact-envelope.schema.json (paths, hashes, completeness, declared limitations) and pointed maker output and checker input at ArtifactEnvelope, which is what maker-agent's own instructions already said it produces. Added path_base to the agent registry and documented it in references/maf-agent-loading.md. Declared tools: orchestrator-only on pmcro-orchestrator and tool_authority: orchestrator-only on create-skill. Added references/runtime-boundary.md to the Orchestrator skill covering dispatch, queue, ingress, and preflight, linked from the workflow and resources. Added .pmcro/tests/run_all.py as the single offline verification entry point and .pmcro/scripts/manifest.py to generate and verify MANIFEST.sha256, then regenerated the manifest. Recorded six pre-contract frames in .pmcro/trails/legacy-frames.json rather than rewriting them. Left the planner input drift (registry says IntentEnvelope, planner-agent reads PlanningContext) unfixed and named for a later cycle, because it was not in this cycle's findings.",
+  "evidence_refs": [".pmcro/schemas/artifact-envelope.schema.json", "plugins/pmcro/skills/pmcro-orchestrator/assets/agents-index.json", "plugins/pmcro/skills/pmcro-orchestrator/references/runtime-boundary.md", ".pmcro/tests/run_all.py", ".pmcro/scripts/manifest.py", ".pmcro/trails/legacy-frames.json"],
+  "source_refs": [".pmcro/trails/frames/package-repair-20260915-planner.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:44:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-planner",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Operator intent: make CRUD over control-plane resources callable as a skill from any editor, with per-resource accept/reject; adopt the folder and file pattern from pmcro-runtimearchive; survive a machine that shuts down without warning. Plan: one policy table as the single source, a generic engine over it, thin per-resource skills so an editor can route by name, an agent that exercises the path end to end, and claim-based checkpointing driven by editor hooks so an interrupted session loses at most one step. Acceptance: refusals are provable in tests, the same table governs the script and the editor's own Write and Edit tools, and an unreleased claim survives as an abandoned record rather than disappearing.",
+  "evidence_refs": [".pmcro/policies/resource-operations.json", "A:/ProjectName/.pmcro/runtime/output-contract.md", "A:/ProjectName/.claude/settings.json"],
+  "source_refs": [".pmcro/trails/handoffs/RESUME.json", "W:/projects/pmcro-runtimearchive/.pmcro/manifest.yaml"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T12:05:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-maker",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Added .pmcro/policies/resource-operations.json (allow/approval/deny per resource per verb, defaulting unknown resources to deny), .pmcro/scripts/resource_ops.py (generic engine, exit codes 0/1/2/3/4/5 where 5 is an explicit not-implemented escalation rather than a silent stub), and three skills: pmcro-resource as the generic core with pmcro-laws and pmcro-frames as thin wrappers routing by name. Added plugins/pmcro/agents/laws-operator.agent.md as the smallest end-to-end path. Added .pmcro/scripts/checkpoint.py (claims with heartbeats, atomic writes, corrupt-file recovery, unreleased claims retained as abandoned) and two editor hooks: .claude/scripts/control_plane_guard.py enforcing the same policy table against Write and Edit, and .claude/scripts/checkpoint_beat.py recording a heartbeat after each write. Created the archive-pattern folders under .pmcro. Version research for the .NET stage recorded: MAF 1.21.0 stable with hosting at 1.21.0-preview.260911.1, Aspire 13.5.3 pinned as a whole family per the archive's MethodAccessException lesson, ModelContextProtocol 2.2.0, SDKs 10.0.401 and 11.0.100-preview.7.",
+  "evidence_refs": [".pmcro/scripts/resource_ops.py", ".pmcro/scripts/checkpoint.py", ".claude/scripts/control_plane_guard.py", ".claude/scripts/checkpoint_beat.py", ".claude/settings.json", "plugins/pmcro/skills/pmcro-resource/SKILL.md", "plugins/pmcro/skills/pmcro-laws/SKILL.md", "plugins/pmcro/skills/pmcro-frames/SKILL.md", "plugins/pmcro/agents/laws-operator.agent.md"],
+  "source_refs": [".pmcro/trails/frames/runtime-buildout-20260915-planner.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T12:50:00Z"
+}

@@ -11,5 +11,9 @@
     "untrusted_script"
   ],
   "allowed_verdicts": ["ACCEPT", "EXTEND", "LOOP", "ESCALATE", "INTERRUPT"],
-  "trail_path": ".pmcro/trails/events.jsonl"
+  "trail_path": ".pmcro/trails/events.jsonl",
+  "queue_lease_seconds": 120,
+  "max_queue_attempts": 3,
+  "max_ingress_bytes": 65536,
+  "trusted_ingress_sources": []
 }

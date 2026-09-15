@@ -1,9 +1,9 @@
 {
-  "handoff_id": "handoff-2026-09-15-007",
-  "cycle_id": "cyc-runtime-check-20260915",
+  "handoff_id": "handoff-2026-09-15-008",
+  "cycle_id": "cyc-package-repair-20260915",
   "status": "ready-to-resume",
-  "completed": ["Activated PMCRO for the current request", "Created Planner, Maker, Checker, Reflector, and Orchestrator TrailFrames", "Normalized repository rules under .agents/rules", "Renamed the authoring plugin to pmcro-skill-creator", "Removed the legacy test tree", "Verified marketplace sources and live layout", "Ran available runtime and Desktop Commander checks", "Created a resumable checkpoint"],
-  "open_threads": ["Connect PhaseMessage dispatch to the Orchestrator", "Add webhook ingress and durable queue adapters", "Connect phase skills to a .NET MAF host", "Run validators when runtimes are available"],
-  "next_action": "Resume from checkpoint-runtime-check-20260915 and connect or validate the configured MAF host and Agent Skills MCP boundary.",
-  "created_utc": "2026-09-15T00:00:00Z"
+  "completed": ["Activated PMCRO over W:/projects/pmcro-skills and grounded laws, constraints, config, and Trail state", "Built the PhaseMessage dispatcher with contract, forward-only routing, replay suppression, attempt bounds, approval gate, hash-chained handoff frames, and checkpoint updates", "Added webhook ingress and a durable file-backed queue with leases, bounded retries, dead letters, and a drain that delegates every decision to the dispatcher", "Built the MAF host and Agent Skills MCP boundary preflight and re-probed host prerequisites", "Closed every preflight finding: ArtifactEnvelope contract, registry path_base, tool-authority declarations, runtime-boundary reference in the Orchestrator skill", "Added run_all.py as the single offline verification entry point and manifest.py for MANIFEST.sha256", "Recorded four cycles of Planner, Maker, Checker, Reflector, and Orchestrator frames with events, checkpoints, and fourteen new earned constraints"],
+  "open_threads": ["Connect a live MAF host: .NET SDK 11.0.100-preview.7 and Microsoft.Agents.AI 1.21.0 are available, but a model endpoint needs credentials, which is secret_access and requires human approval", "Run one end-to-end cycle and an Agent Skills MCP operation against that host", "Registry declares planner input IntentEnvelope while planner-agent reads PlanningContext; decide which is canonical", "TrailFrame forbids phase payload outright, which is why six historical frames are listed as legacy; consider a declared payload object", "Swap the reference file queue for a real broker behind the same enqueue/lease/ack/nack contract"],
+  "next_action": "Resume from checkpoint-package-repair-20260915. Ask the operator to authorize a model endpoint and credentials, then connect the MAF host and run one end-to-end cycle; verification is python .pmcro/tests/run_all.py.",
+  "created_utc": "2026-09-15T11:56:00Z"
 }

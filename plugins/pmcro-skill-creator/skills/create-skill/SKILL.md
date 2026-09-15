@@ -8,6 +8,7 @@ metadata:
   version: "1.0.0"
   protocol: "maf-agent-skills"
   compatible_with: "dotagent"
+  tool_authority: orchestrator-only
 ---
 
 # Purpose

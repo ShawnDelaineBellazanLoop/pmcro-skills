@@ -1,0 +1,22 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-phase-dispatch-20260915-planner",
+  "cycle_id": "cyc-phase-dispatch-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Minimal checkable plan: add a PhaseMessage dispatcher at the runtime boundary that validates the envelope against the PhaseMessage schema, enforces forward-only routing (LAW-001), idempotency by key, per-phase attempt bounds, and the approval gate (LAW-008), and that emits hash-chained handoff TrailFrames plus append-only trail events (LAW-010). Acceptance: a stdlib test suite covering forward dispatch, backward rejection, duplicate suppression, attempt-limit escalation, approval hold, and schema violation exits 0, and emitted frames validate against trail-frame.schema.json.",
+  "evidence_refs": [
+    ".pmcro/schemas/phase-message.schema.json",
+    ".pmcro/schemas/trail-frame.schema.json",
+    ".pmcro/schemas/checkpoint.schema.json",
+    ".pmcro/laws/constitution.md",
+    ".pmcro/laws/constraints.md"
+  ],
+  "source_refs": [
+    "docs/phase-message-vs-send-message.md",
+    "docs/architecture.md",
+    ".pmcro/trails/handoffs/SESSION_HANDOFF_2026-09-15.json"
+  ],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:10:00Z"
+}

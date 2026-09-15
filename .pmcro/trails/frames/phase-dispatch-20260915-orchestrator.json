@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-phase-dispatch-20260915-orchestrator",
+  "cycle_id": "cyc-phase-dispatch-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "ACCEPT. Acceptance criteria passed with independent Checker evidence: the dispatcher enforces contract, forward-only routing, replay suppression, attempt bounds, and the approval gate, and it leaves hash-chained frames and append-only events. Next bounded action: webhook ingress and a durable queue adapter that feed this dispatcher rather than bypassing it.",
+  "evidence_refs": [".pmcro/trails/frames/phase-dispatch-20260915-checker.json", ".pmcro/trails/frames/phase-dispatch-20260915-reflector.json"],
+  "source_refs": [".pmcro/templates/pmcro.config.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:28:00Z"
+}

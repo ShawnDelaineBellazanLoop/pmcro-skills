@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-checker-002",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "Supplements frame-runtime-buildout-20260915-checker with a flake observed after it was written. On one run_all invocation the claims-and-editor-boundary suite exited 3221225477 (0xC0000005, access violation) with no test output, while every other run passed. Re-checked immediately: standalone 13/13 OK, run_all PASS, then six consecutive standalone runs all clean - one crash in roughly eight runs, not reproducible on demand. It is a process-level crash of the interpreter, not a failing assertion: the suite spawns seven nested python subprocesses to exercise the hook through its real exit-code contract, and the crash carried no traceback. Recorded rather than dismissed, because a suite that fails once in eight will eventually fail in front of someone who believes it. Suggested follow-up if it recurs: keep the subprocess path for the exit-code contract but reduce the spawn count by parameterizing one subprocess call over several payloads.",
+  "evidence_refs": [".pmcro/tests/test_hooks_checkpoint.py", ".pmcro/tests/run_all.py"],
+  "source_refs": [".pmcro/trails/frames/runtime-buildout-20260915-checker.json"],
+  "confidence": "medium",
+  "created_utc": "2026-09-15T13:10:00Z"
+}

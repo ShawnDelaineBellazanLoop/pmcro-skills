@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pmcro.ai/schemas/entity-spec.json",
+  "title": "Entity Scaffold Spec",
+  "description": "What a model fills in from intent, and what the generator consumes. The split matters: a small local model is reliable at turning 'track invoices with a number, amount, and due date' into this object, and unreliable at emitting correct C# across four files. Filling a validated spec is a task it can be checked on; generating code is not.",
+  "type": "object",
+  "required": ["apiVersion", "kind", "metadata", "spec"],
+  "additionalProperties": false,
+  "properties": {
+    "apiVersion": {"const": "pmcro.ai/v1"},
+    "kind": {"const": "EntityScaffoldSpec"},
+    "metadata": {
+      "type": "object",
+      "required": ["name", "resource"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9]*$",
+          "description": "PascalCase class name, singular: Invoice, not invoices or InvoiceEntity."
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Policy table key the model is governed by. Must already exist in .pmcro/policies/resource-operations.json, or the generated repository is denied at runtime - which is the correct failure, but a confusing one to meet by surprise."
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 20,
+          "description": "One sentence a person who was not here would understand."
+        }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "required": ["properties"],
+      "additionalProperties": false,
+      "properties": {
+        "naturalKey": {
+          "type": "string",
+          "description": "Property holding the meaningful id, when the model has one beyond the surrogate Guid: FrameId, ConstraintId, InvoiceNumber."
+        },
+        "namedOnUnitOfWork": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add a typed property to IUnitOfWork. Leave false unless callers keep reaching for this type; Repository<T>() already works without it."
+        },
+        "properties": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string", "pattern": "^[A-Z][A-Za-z0-9]*$"},
+              "type": {
+                "type": "string",
+                "enum": ["string", "int", "long", "decimal", "bool", "Guid", "DateTimeOffset", "string[]", "int[]"],
+                "description": "Deliberately a closed list. An open type field invites a model to invent a type that does not compile, and the generator cannot tell the difference until build time."
+              },
+              "required": {"type": "boolean", "default": false},
+              "summary": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-checker",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "PASS. python .pmcro/tests/run_all.py returned OVERALL PASS on Python 3.14.5 across eleven steps: 45 gate tests in four suites, host boundary preflight with zero FAIL and zero UNMAPPED, scripts compile, five marketplace manifests synchronized, content manifest current, 115 JSON files parsed, 45 TrailFrames valid with 6 LEGACY, 9 checkpoints valid. The refusals were checked directly rather than assumed: editing an existing frame through the editor hook exits 2 quoting LAW-010; overwriting one with Write is treated as an update and also blocked; writing a new frame is allowed; editing the constitution demands a person; advancing a checkpoint is allowed; a path outside the control plane is ignored; and malformed hook input exits 0, so the gate fails open on its own bugs and closed only on policy. Claim behavior was checked against the shutdown case: an unreleased claim becomes abandoned rather than vanishing, and a truncated claims file does not stop the next run. Not claimed: no .NET code was written or built this cycle, and no live MAF host was contacted.",
+  "evidence_refs": [".pmcro/tests/run_all.py", ".pmcro/tests/test_resource_ops.py", ".pmcro/tests/test_hooks_checkpoint.py"],
+  "source_refs": [".pmcro/trails/frames/runtime-buildout-20260915-maker.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T12:56:00Z"
+}

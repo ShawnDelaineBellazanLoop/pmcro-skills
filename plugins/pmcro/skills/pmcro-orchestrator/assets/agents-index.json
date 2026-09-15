@@ -1,9 +1,10 @@
 {
   "version": 1,
+  "path_base": "skill-root",
   "agents": [
     {"id": "planner-agent", "phase": "planner", "skill": "../planner-agent/SKILL.md", "definition": "../../agents/planner.agent.md", "input": "IntentEnvelope", "output": "PlanEnvelope"},
-    {"id": "maker-agent", "phase": "maker", "skill": "../maker-agent/SKILL.md", "definition": "../../agents/maker.agent.md", "input": "PlanEnvelope", "output": "Artifact"},
-    {"id": "checker-agent", "phase": "checker", "skill": "../checker-agent/SKILL.md", "definition": "../../agents/checker.agent.md", "input": "Artifact", "output": "CheckReport"},
+    {"id": "maker-agent", "phase": "maker", "skill": "../maker-agent/SKILL.md", "definition": "../../agents/maker.agent.md", "input": "PlanEnvelope", "output": "ArtifactEnvelope"},
+    {"id": "checker-agent", "phase": "checker", "skill": "../checker-agent/SKILL.md", "definition": "../../agents/checker.agent.md", "input": "ArtifactEnvelope", "output": "CheckReport"},
     {"id": "reflector-agent", "phase": "reflector", "skill": "../reflector-agent/SKILL.md", "definition": "../../agents/reflector.agent.md", "input": "CheckReport", "output": "ReflectionFrame"},
     {"id": "orchestrator-agent", "phase": "orchestrator", "skill": "../orchestrator-agent/SKILL.md", "definition": "../../agents/orchestrator.agent.md", "input": "ReflectionFrame", "output": "OrchestratorDecision"}
   ]

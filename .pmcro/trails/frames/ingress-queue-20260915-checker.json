@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-ingress-queue-20260915-checker",
+  "cycle_id": "cyc-ingress-queue-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "PASS. Ran python .pmcro/tests/test_ingress_queue.py on Python 3.14.5: 10 tests, exit code 0. Verified a webhook payload becomes a SeedIntent validating against seed-intent.schema.json at low confidence; an untrusted origin drains to held rather than delivered; a trusted origin drains to a delivered dispatch with a written frame; a repeated delivery id yields delivered plus duplicate and exactly one trail event; an oversized payload and a payload with no intent field are refused before queueing; a malformed envelope never enters the queue; an expired lease is reclaimed with the attempt count incremented; a backward edge goes straight to the dead letter with verdict ESCALATE; and an attempt-limited message is retried to the queue cap and then dead-lettered. Checker did not modify the artifact.",
+  "evidence_refs": [".pmcro/tests/test_ingress_queue.py", ".pmcro/scripts/queue_adapter.py", ".pmcro/scripts/ingress.py"],
+  "source_refs": [".pmcro/trails/frames/ingress-queue-20260915-maker.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:50:00Z"
+}

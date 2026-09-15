@@ -1,10 +1,26 @@
 {
   "name": "pmcro-skills-marketplace",
-  "owner": {"name": "Local Agent Skills"},
-  "interface": {"displayName": "PMCR-O Skill Ecosystem"},
+  "owner": {
+    "name": "Local Agent Skills"
+  },
+  "interface": {
+    "displayName": "PMCR-O Skill Ecosystem"
+  },
   "plugins": [
-    {"name": "pmcro-skill-creator", "source": "./plugins/pmcro-skill-creator", "description": "Create, test, validate, and improve MAF-compatible Agent Skills."},
-    {"name": "pmcro", "source": "./plugins/pmcro", "description": "PMCRO lifecycle framework with O-Mode, typed envelopes, laws, constraints, evidence checks, and Trails."},
-    {"name": "pmcro-csuite", "source": "./plugins/pmcro-csuite", "description": "C-suite executive harness for goals, governance, delegation, and PMCRO orchestration."}
+    {
+      "name": "pmcro-skill-creator",
+      "source": "./plugins/pmcro-skill-creator",
+      "description": "Create, test, validate, and improve MAF-compatible Agent Skills."
+    },
+    {
+      "name": "pmcro",
+      "source": "./plugins/pmcro",
+      "description": "PMCRO lifecycle framework: O-Mode, typed envelopes, laws, earned constraints, evidence checks, and append-only Trails, with a policy-gated CRUD interface over control-plane resources and hooks that enforce the same policy where writes happen."
+    },
+    {
+      "name": "pmcro-csuite",
+      "source": "./plugins/pmcro-csuite",
+      "description": "C-suite executive harness for goals, governance, delegation, and PMCRO orchestration."
+    }
   ]
 }

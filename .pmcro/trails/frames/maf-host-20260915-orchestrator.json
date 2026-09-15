@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-maf-host-20260915-orchestrator",
+  "cycle_id": "cyc-maf-host-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "EXTEND, not ACCEPT: the preflight exists and ran, but it reports two failures and two unmapped envelope types, and ACCEPT would mean the boundary is clean when it is not. Next cycle repairs the named findings in the packages and re-runs the preflight to PASS. Connecting a live MAF host is separately gated: the SDK and packages are present, but a model endpoint needs credentials, which is secret_access and requires human approval before any cycle attempts it.",
+  "evidence_refs": [".pmcro/trails/frames/maf-host-20260915-checker.json", ".pmcro/trails/frames/maf-host-20260915-reflector.json"],
+  "source_refs": [".pmcro/laws/constitution.md", ".pmcro/templates/pmcro.config.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:26:00Z"
+}

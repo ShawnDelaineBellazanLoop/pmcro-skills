@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-maf-host-20260915-planner",
+  "cycle_id": "cyc-maf-host-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Resume checkpoint-runtime-check-20260915. Plan: separate what a host integration can be checked on offline from what needs a live host. Offline, validate the adapter obligations from references/maf-agent-loading.md - registry contract, path resolution base, containment inside the plugin, envelope types resolving to .pmcro schemas, MAF discoverability of each SKILL.md, and the declared tool-authority boundary from docs/architecture.md. Live, probe whether this machine can host MAF at all. Acceptance: a preflight report with per-finding status and an explicit list of capabilities deferred to a live host, plus recorded evidence of SDK and package availability.",
+  "evidence_refs": [".pmcro/checkpoints/runtime-check-20260915.json", "docs/maf-skill-discovery.md", "docs/agent-skills-mcp.md", "plugins/pmcro/skills/pmcro-orchestrator/references/maf-agent-loading.md"],
+  "source_refs": [".pmcro/trails/frames/ingress-queue-20260915-orchestrator.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:00:00Z"
+}

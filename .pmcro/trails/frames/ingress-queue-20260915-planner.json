@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-ingress-queue-20260915-planner",
+  "cycle_id": "cyc-ingress-queue-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Plan: add webhook ingress that bounds an inbound payload, translates it into a contract-valid SeedIntent, and enqueues a PhaseMessage marked requires_approval unless the origin is listed in trusted_ingress_sources; add a durable file-backed queue with atomic rename, visibility leases, bounded retries, dead letters, and a drain that turns dispatcher exit codes into queue states. Acceptance: a stdlib suite proves untrusted ingress is held, trusted ingress is delivered, a retried delivery collapses to one event, an expired lease is reclaimed, and refusals terminate in a dead letter.",
+  "evidence_refs": [".pmcro/schemas/seed-intent.schema.json", ".pmcro/schemas/phase-message.schema.json", ".pmcro/templates/pmcro.config.json"],
+  "source_refs": [".pmcro/trails/frames/phase-dispatch-20260915-orchestrator.json", ".pmcro/trails/constraints/earned-constraints.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:32:00Z"
+}

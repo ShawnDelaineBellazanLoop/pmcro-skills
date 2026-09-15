@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-reflector",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Earned constraints: a policy enforced only inside its own script is advisory, because any tool with file access routes around it, so the same table is enforced at the editor boundary too; a policy gate fails open on its own defects and closed only on policy, since a guard that can break a session gets disabled and then nothing is enforced; work is claimed before it starts and heartbeated after each write, because a checkpoint written at the end of a cycle is worth nothing to a machine that stops mid-cycle; and an unreleased claim is retained as abandoned rather than cleared, since the fact that a run did not finish is itself the evidence a resumer needs. Observed from A:/ProjectName: hooks there enforce gates but nothing checkpoints, which is exactly the gap the operator hit. Two adoptions from that project remain unbuilt: the governed output contract and the agent directory.",
+  "evidence_refs": [".pmcro/trails/frames/runtime-buildout-20260915-checker.json", "A:/ProjectName/.claude/settings.json"],
+  "source_refs": [".pmcro/laws/constitution.md", ".pmcro/trails/constraints/earned-constraints.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T12:58:00Z"
+}

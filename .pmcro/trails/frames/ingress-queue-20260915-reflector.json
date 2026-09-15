@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-ingress-queue-20260915-reflector",
+  "cycle_id": "cyc-ingress-queue-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Earned constraints: an external origin is untrusted by default and its message carries requires_approval, so reaching an endpoint never starts a cycle unattended; trusting an origin is a governance change, not a runtime toggle; ingress records confidence low because an outside caller does not get to assert how well its text was understood; and a refusal no retry can fix is dead-lettered immediately instead of consuming the retry budget.",
+  "evidence_refs": [".pmcro/trails/frames/ingress-queue-20260915-checker.json", ".pmcro/trails/constraints/earned-constraints.json"],
+  "source_refs": [".pmcro/laws/constitution.md"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:52:00Z"
+}

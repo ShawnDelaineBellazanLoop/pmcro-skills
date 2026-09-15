@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-package-repair-20260915-orchestrator",
+  "cycle_id": "cyc-package-repair-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "ACCEPT for the package boundary: every finding from the host cycle is closed with independent evidence from a single verification entry point. The MAF host itself remains ESCALATE and is not part of this ACCEPT - a model endpoint needs credentials, which is secret_access under LAW-008 and waits for human approval. Session limit respected: four cycles used of five. Open threads carried forward: planner input drift in the registry, the TrailFrame payload question, and connecting a live host.",
+  "evidence_refs": [".pmcro/trails/frames/package-repair-20260915-checker.json", ".pmcro/trails/frames/package-repair-20260915-reflector.json"],
+  "source_refs": [".pmcro/templates/pmcro.config.json", ".pmcro/laws/constraints.md"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:54:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-maf-host-20260915-checker",
+  "cycle_id": "cyc-maf-host-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "FAIL with a narrow, named remainder. Preflight over the shipped registry: 57 PASS, 2 FAIL, 2 UNMAPPED, 1 EXTERNAL. FAIL: pmcro-orchestrator is an authority skill yet declares no tool authority in frontmatter; create-skill declares none at all. UNMAPPED: maker-agent output and checker-agent input both declare 'Artifact', which has no contract in .pmcro/schemas, so an adapter would accept an untyped artifact. EXTERNAL: the vendored desktop-commander plugin executes tools outside PMCRO governance and may only be reached through the Orchestrator. Host prerequisites probed live on this machine: .NET SDK 11.0.100-preview.7.26381.103 present, node v24.15.0, Python 3.14.5, and nuget.org reachable with Microsoft.Agents.AI 1.21.0 available - the SDK gap recorded in the runtime-check cycle no longer holds. Not checked, and not claimed: agent instantiation, any Agent Skills MCP operation, and an end-to-end cycle, all of which need a configured host and credentials.",
+  "evidence_refs": [".pmcro/scripts/validate_host_boundary.py", ".pmcro/checkpoints/runtime-check-20260915.json"],
+  "source_refs": [".pmcro/trails/frames/maf-host-20260915-maker.json", "plugins/pmcro/skills/pmcro-orchestrator/assets/agents-index.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:22:00Z"
+}

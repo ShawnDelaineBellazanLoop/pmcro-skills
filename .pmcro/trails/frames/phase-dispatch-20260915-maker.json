@@ -1,0 +1,17 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-phase-dispatch-20260915-maker",
+  "cycle_id": "cyc-phase-dispatch-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Added .pmcro/scripts/pmcro_runtime.py (stdlib schema subset checker, canonical hashing, config loading, append-only trail writes, dispatch ledger) and .pmcro/scripts/dispatch_message.py (contract, forward-only routing, idempotency, attempt bounds, approval gate, hash-chained handoff frames, checkpoint update). Added .pmcro/schemas/dispatch-ledger.schema.json and .pmcro/tests/test_dispatch.py with eight gate tests. No stubs or TODOs.",
+  "evidence_refs": [
+    ".pmcro/scripts/pmcro_runtime.py",
+    ".pmcro/scripts/dispatch_message.py",
+    ".pmcro/schemas/dispatch-ledger.schema.json",
+    ".pmcro/tests/test_dispatch.py"
+  ],
+  "source_refs": [".pmcro/trails/frames/phase-dispatch-20260915-planner.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:20:00Z"
+}

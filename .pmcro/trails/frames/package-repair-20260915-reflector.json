@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-package-repair-20260915-reflector",
+  "cycle_id": "cyc-package-repair-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Earned constraints: history is recorded, not repaired - frames written before a contract settled are listed as legacy so verification stays honest without editing evidence; verification runs from one entry point so a cycle cannot accept on a partial check; and a manifest that records content integrity is regenerated on every tree change, which is the opposite of the trail's rule and the reason the two must not be conflated. Open thread for a later cycle: the TrailFrame contract forbids phase payload outright, which is why six historical frames cannot validate; a declared payload object may serve better.",
+  "evidence_refs": [".pmcro/trails/frames/package-repair-20260915-checker.json", ".pmcro/trails/legacy-frames.json"],
+  "source_refs": [".pmcro/laws/constitution.md"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:52:00Z"
+}

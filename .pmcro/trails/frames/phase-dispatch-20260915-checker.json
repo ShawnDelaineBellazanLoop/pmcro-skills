@@ -1,0 +1,15 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-phase-dispatch-20260915-checker",
+  "cycle_id": "cyc-phase-dispatch-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "PASS. Ran python .pmcro/tests/test_dispatch.py on Python 3.14.5: 8 tests, exit code 0. Verified independently that a forward dispatch writes a TrailFrame validating against trail-frame.schema.json plus one trail event, a checker->maker edge is refused with no event written, a repeated idempotency_key delivers once, the third attempt on a phase returns ESCALATE at the configured limit of 2, requires_approval holds until --approved, an envelope with an extra field is rejected before routing, orchestrator->planner inside a used cycle_id is refused, and consecutive frames chain by payload hash. Checker did not modify the artifact.",
+  "evidence_refs": [
+    ".pmcro/tests/test_dispatch.py",
+    ".pmcro/scripts/dispatch_message.py"
+  ],
+  "source_refs": [".pmcro/trails/frames/phase-dispatch-20260915-maker.json", ".pmcro/laws/constitution.md"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:24:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-ingress-queue-20260915-orchestrator",
+  "cycle_id": "cyc-ingress-queue-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "ACCEPT. Webhook ingress and the durable queue adapter are in place with independent Checker evidence, and both feed the dispatcher rather than bypassing it. Next bounded action: resume checkpoint-runtime-check-20260915 and probe the MAF host and Agent Skills MCP boundary now that a .NET SDK is present on this machine.",
+  "evidence_refs": [".pmcro/trails/frames/ingress-queue-20260915-checker.json", ".pmcro/trails/frames/ingress-queue-20260915-reflector.json"],
+  "source_refs": [".pmcro/checkpoints/phase-dispatch-20260915.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:54:00Z"
+}

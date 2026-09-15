@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "note": "Frames written before the TrailFrame contract settled. They carry phase payload as top-level fields, which trail-frame.schema.json rejects with additionalProperties:false. They are recorded here rather than rewritten, because a trail whose history is edited to match today's schema is no longer evidence (LAW-010). Verification reports them as LEGACY; new frames must satisfy the contract. Open question for a future cycle: whether the contract should carry phase payload in a declared 'payload' object instead of forbidding it outright.",
+  "frames": [
+    "session-20260915-planner.json",
+    "session-20260915-maker.json",
+    "session-20260915-checker.json",
+    "session-20260915-reflector.json",
+    "session-20260915-orchestrator.json",
+    "session-upgrade-001.json"
+  ]
+}

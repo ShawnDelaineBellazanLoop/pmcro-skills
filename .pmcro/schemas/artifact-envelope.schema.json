@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO ArtifactEnvelope",
+  "description": "What Maker hands forward. Paths and hashes let Checker verify the artifact itself rather than Maker's account of it (LAW-002), and limitations are declared rather than left as silent stubs (LAW-004).",
+  "type": "object",
+  "required": ["cycle_id", "phase", "outputs", "complete"],
+  "properties": {
+    "cycle_id": {"type": "string"},
+    "phase": {"const": "maker"},
+    "plan_ref": {"type": "string"},
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "action"],
+        "properties": {
+          "path": {"type": "string"},
+          "sha256": {"type": "string"},
+          "action": {"enum": ["created", "modified", "deleted"]},
+          "bytes": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "tool_results": {"type": "array", "items": {"type": "string"}},
+    "complete": {"type": "boolean"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "escalations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

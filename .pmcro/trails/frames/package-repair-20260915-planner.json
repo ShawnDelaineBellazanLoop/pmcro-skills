@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-package-repair-20260915-planner",
+  "cycle_id": "cyc-package-repair-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Repair exactly the findings the preflight named, and no more: give ArtifactEnvelope a contract and point the registry at it, declare path_base in the registry, declare tool authority in pmcro-orchestrator and create-skill frontmatter, and teach the Orchestrator skill about the runtime scripts it now owns. Add one verification entry point so a Checker runs every offline check rather than whichever it remembers. Acceptance: the preflight reports zero FAIL and zero UNMAPPED, both gate suites pass, every TrailFrame and checkpoint validates, marketplace manifests agree, and the content manifest matches the tree.",
+  "evidence_refs": [".pmcro/trails/frames/maf-host-20260915-checker.json"],
+  "source_refs": [".pmcro/checkpoints/maf-host-20260915.json", ".pmcro/trails/constraints/earned-constraints.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:30:00Z"
+}

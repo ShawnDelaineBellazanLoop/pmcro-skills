@@ -1,0 +1,76 @@
+{
+  "handoff_id": "resume-runtime-buildout",
+  "cycle_id": "cyc-runtime-hooks-20260915",
+  "status": "in-progress",
+  "purpose": "Live resume point, rewritten after every completed step. The operator's machine sleeps without warning, so this file is the contract that no completed work has to be reconstructed from memory.",
+  "checkpoint": ".pmcro/checkpoints/runtime-buildout-20260915.json",
+  "claims": ".pmcro/state/claims.json",
+  "verification": {
+    "skills": "python .pmcro/tests/run_all.py  (11 steps, 47 gate tests) - PASS",
+    "runtime": "cd W:/projects/pmcro-runtime/src/governance/ProjectName.Governance.Tests && dotnet run  (6 tests) - PASS"
+  },
+  "done_this_cycle": [
+    "marketplace refreshed across all five manifests, verified in sync by synchronize_manifests",
+    "pmcro plugin bumped to 0.2.0 in plugin.json, .claude-plugin, and .codex-plugin, now declaring agents and hooks",
+    "version.json fixed to Nerdbank.GitVersioning pathspec form ('.', ':!plugin.json') for all three plugins; pmcro-csuite had none",
+    "hooks moved to plugins/pmcro/scripts with plugins/pmcro/hooks/hooks.json so they ship with the plugin",
+    "root resolution no longer depends on CLAUDE_PROJECT_DIR: PMCRO_PROJECT_DIR, then CLAUDE_PROJECT_DIR, then walk up to .pmcro"
+  ],
+  "dotnet_runtime": {
+    "location": "W:/projects/pmcro-runtime/src/governance",
+    "layout": "ProjectName.Domain, ProjectName.Infrastructure, ProjectName.Governance.Tests; grouped under src/governance so its Directory.Build.props and CPM do not reach the MAUI app in src/ProjectName.App",
+    "naming": "ProjectName.* throughout, for dotnet new template sourceName substitution",
+    "pattern": "BaseEntity (Guid Id generated on construction) -> IGenericRepository<T> with overloaded Get -> BaseGenericRepository<T> (guarded CRUD) -> IJsonFileRepository<T> / JsonFileRepository<T> (atomic file storage) -> empty per-model repositories",
+    "governance_seam": "[GovernedResource(\"frames\")] on the model; the base repository consults .pmcro/policies/resource-operations.json, so a model with no attribute fails closed",
+    "verified": "frames refuse update and delete quoting LAW-010; constraints require approval to promote and succeed once authorized; undeclared entity denied"
+  },
+  "dotnet_status": {
+    "builds": "ProjectName.Domain, ProjectName.Infrastructure, ProjectName.ServiceDefaults, ProjectName.AppHost all build clean on SDK 11.0.100-preview.7; MAUI app not built this session (workloads)",
+    "tests": "9/9 green via dotnet run in ProjectName.Governance.Tests",
+    "unit_of_work": "typed properties (TrailFrames, Constraints) built in the constructor, plus Repository<T>() that builds a governed repository for any BaseEntity with no plumbing; SaveChangesAsync returns 0 and says why - repositories are write-through until EF or staged writes land",
+    "maf_checkpoint_boundary": "MAF CheckpointManager owns workflow runtime state (executor state, pending messages, supersteps, rehydration needs identical topology and stable executor ids). CycleCheckpoint owns governance state and exists with no workflow running. Linked by CycleCheckpoint.WorkflowCheckpointId, not merged. Microsoft draws the same line between a workflow checkpoint and an AG-UI thread snapshot.",
+    "half_done": "plugins/pmcro-dotnet has plugin.json and .claude-plugin/plugin.json only - no skills, not registered in any marketplace, so currently inert"
+  },
+  "workspace": {
+    "location": "W:/projects/pmcro-runtime/workspace",
+    "purpose": "Where generated output lands - scaffolded projects, harnesses, scratch solutions. Neither control plane nor product.",
+    "governed_as": "workspace resource in resource-operations.json: create/read/update allow, delete approval",
+    "boundary": "WorkspaceSandbox in ProjectName.Infrastructure enforces FS-LAW-001: containment checked on the resolved path and through symlinks, absolute paths refused rather than rebased, no default root",
+    "root_from": "Aspire parameter 'workspace-root' declared in AppHost.cs; .pmcro holds the policy, configuration holds the value",
+    "verified": "16/16 dotnet tests including traversal escape, symlink resolution, absolute-path refusal, unconfigured root"
+  },
+  "apphost": {
+    "file": "W:/projects/pmcro-runtime/src/ProjectName.AppHost/AppHost.cs",
+    "ported_from": "W:/projects/pmcro-runtimearchive/src/PmcroRuntime.AppHost/AppHost.cs",
+    "carried_forward": "repoRoot and workspace-root parameters; Ollama container with Nvidia GPU support, persistent lifetime, ollama-data volume, OLLAMA_CONTEXT_LENGTH=16384 (4096 default silently truncates a full skill manifest), OLLAMA_FLASH_ATTENTION=0 (archive records SIGSEGV in ggml_backend_sched_reserve on RTX 4070 Laptop at this context length; mitigation never confirmed by a sealed trail, so if crashes return lower the context length rather than re-enabling); model-orchestrator = qwen3:8b",
+    "package": "CommunityToolkit.Aspire.Hosting.Ollama 13.5.1-beta.757 (archive used 13.4.1-beta.706)",
+    "deliberately_not_ported": "AddProject wiring for OrchestratorService, mcp-filesystem, mcp-playwright, mcp-terminal, OrchestratorApi, DevUI, and the Next.js frontend - none of those projects exist in pmcro-runtime yet. An AddProject for a missing project does not compile and a commented-out one rots; each returns when its project does.",
+    "archive_lessons_to_re_read_when_wiring_services": "EC-ASPIRE-001 (playwright deliberately excluded from WaitFor so a dead lazy actuator cannot stall the colony); ARCH-TRAILS-002 (repoRoot must be injected explicitly into every project that reads Orchestrator__FileSystemRoot, or they silently diverge on where trails live); MaxLoops must come from appsettings, not a WithEnvironment override that shadows it",
+    "verified": "builds clean, 0 warnings, on SDK 11.0.100-preview.7"
+  },
+  "scaffolding_design": {
+    "split": "model turns intent into a validated spec; a deterministic script turns the spec into files. Never ask a small local model to emit C# it cannot check.",
+    "file_level": "scripts/new_entity.py renders entity + repository from an EntityScaffoldSpec; proven by generating TrailEvent into the runtime and compiling it",
+    "project_level": "should use dotnet new templates carried in the skill's assets/, driven by scripts/, rather than a hand-rolled renderer - and dotnet-skills already ships a dotnet-template-engine plugin covering discovery, scaffolding, and template authoring, which is another reason to extend rather than fork",
+    "example_is_self_referential": "assets/example-trail-event.spec.json scaffolds PMCRO's own trail event, not a toy invoice"
+  },
+  "next_steps": [
+    "skill: mcp-server-project, with the archive's three-pillar layout as a dotnet new template in assets/",
+    "finish plugins/pmcro-dotnet: .codex-plugin/plugin.json, version.json, README, the two skills, add to GOVERNED_PLUGINS in validate_host_boundary.py, register in all five marketplaces",
+    "skill: clean-architecture-generic-repository (BaseEntity -> IGenericRepository -> BaseGenericRepository -> empty per-model repo -> UnitOfWork)",
+    "skill: mcp-server-project (Sdk.Web, AddServiceDefaults, config + three pillar singletons, AddMcpServer().WithHttpTransport(stateless).WithTools/WithResources/WithPrompts, MapMcp, diagnostic root, Dockerfile, ExcludeAssets=analyzers gotcha)",
+    "hook pipeline in the runtime: HookDefinition, IHookRunner, HookPipeline with exit 0 allow / 2 block / other fail-open, plus plugin hooks.json discovery",
+    "IUnitOfWork implementation so a record and its trail event commit together",
+    "extend .NET skills: a plugin capturing the BaseEntity + generic repository + unit of work house pattern",
+    "ADR-0005 from pmcro-template: require references/ scripts/ assets/ per skill with <kind>-exempt escape hatches",
+    "governed output contract and agent directory from A:/ProjectName",
+    "eval.yaml for pmcro-resource, pmcro-laws, pmcro-frames under tests/pmcro/"
+  ],
+  "open_gates": [
+    "A live MAF host needs a model endpoint and credentials: secret_access under LAW-008, waiting on the operator"
+  ],
+  "corrections": [
+    "pmcro-template ADR-0007 states there is no official Microsoft-maintained skills repository. github.com/dotnet/skills exists and was cloned this session (16 plugins, eng/skill-validator, CI). That ADR is load-bearing for the .NET track and deserves a correction frame."
+  ],
+  "created_utc": "2026-09-15T13:40:00Z"
+}

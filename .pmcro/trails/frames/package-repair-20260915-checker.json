@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-package-repair-20260915-checker",
+  "cycle_id": "cyc-package-repair-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "PASS. python .pmcro/tests/run_all.py returned OVERALL PASS on Python 3.14.5 with every step green: dispatch gates (8 tests), ingress and queue gates (10 tests), host boundary preflight (zero FAIL, zero UNMAPPED, one EXTERNAL for the vendored desktop-commander plugin), control-plane scripts compile, marketplace manifests synchronized across five files, content manifest matches the tree, 102 JSON files parse, TrailFrames validate with six recorded as LEGACY, and all checkpoints validate. The preflight still reports the three capabilities it cannot cover without a live host, so this PASS is a statement about the package boundary, not about a running MAF host. Checker did not modify the artifact.",
+  "evidence_refs": [".pmcro/tests/run_all.py", ".pmcro/scripts/validate_host_boundary.py", "MANIFEST.sha256"],
+  "source_refs": [".pmcro/trails/frames/package-repair-20260915-maker.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:50:00Z"
+}

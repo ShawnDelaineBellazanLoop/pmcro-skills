@@ -1,0 +1,22 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-session-20260915-orchestrator",
+  "cycle_id": "cyc-activate-session-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "Activated PMCRO for a new session over W:/projects/pmcro-skills: grounded laws, runtime constraints, configuration, earned constraints, Trail state, and the resumable runtime-check checkpoint. No plan dispatched yet; awaiting a scoped seed before opening a work cycle.",
+  "evidence_refs": [
+    ".pmcro/laws/constitution.md",
+    ".pmcro/laws/constraints.md",
+    ".pmcro/templates/pmcro.config.json",
+    ".pmcro/trails/constraints/earned-constraints.json",
+    ".pmcro/checkpoints/runtime-check-20260915.json",
+    ".pmcro/trails/handoffs/SESSION_HANDOFF_2026-09-15.json"
+  ],
+  "source_refs": [
+    "plugins/pmcro/skills/pmcro-orchestrator/SKILL.md",
+    "plugins/pmcro/skills/pmcro-orchestrator/references/o-mode.md"
+  ],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:05:26Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-buildout-20260915-orchestrator",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "ACCEPT for the resource interface and crash resilience, with independent Checker evidence. The operator authorized the adoptions from A:/ProjectName by delegation in session; claim checkpoints and the editor-boundary gate were built under that authorization. The governed output contract (new law plus schema) and the agent directory (new schema) were named to the operator but not built, so they are not part of this ACCEPT. Next bounded action: the pmcro-runtime .NET scaffold reading the same policy table, then those two adoptions. A live MAF host stays ESCALATE pending credentials.",
+  "evidence_refs": [".pmcro/trails/frames/runtime-buildout-20260915-checker.json", ".pmcro/trails/frames/runtime-buildout-20260915-reflector.json"],
+  "source_refs": [".pmcro/checkpoints/runtime-buildout-20260915.json", ".pmcro/trails/handoffs/RESUME.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T13:00:00Z"
+}

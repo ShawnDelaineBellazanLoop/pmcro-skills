@@ -1,0 +1,21 @@
+{
+  "apiVersion": "pmcro.ai/v1",
+  "kind": "EntityScaffoldSpec",
+  "metadata": {
+    "name": "TrailEvent",
+    "resource": "events",
+    "summary": "One entry in the append-only trail: what happened in a cycle, which phase did it, and the evidence it rests on."
+  },
+  "spec": {
+    "naturalKey": "EventId",
+    "namedOnUnitOfWork": true,
+    "properties": [
+      {"name": "EventId", "type": "string", "required": true, "summary": "Sequence key, evt-NNN, continuing the existing trail."},
+      {"name": "CycleId", "type": "string", "required": true, "summary": "Cycle this event belongs to."},
+      {"name": "Phase", "type": "string", "required": true, "summary": "planner, maker, checker, reflector, orchestrator, or system."},
+      {"name": "EventType", "type": "string", "required": true, "summary": "What kind of thing happened, in kebab-case."},
+      {"name": "Summary", "type": "string", "required": true, "summary": "What happened, written so it still reads a year from now."},
+      {"name": "EvidenceRefs", "type": "string[]", "summary": "Paths the summary rests on."}
+    ]
+  }
+}

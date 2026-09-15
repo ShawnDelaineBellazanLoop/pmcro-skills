@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# PMCRO runtime state
+# Queue jobs, leases, and captured webhook payloads are per-machine runtime state.
+# Trails, frames, checkpoints, and the dispatch ledger are evidence and stay tracked.
+.pmcro/queue/

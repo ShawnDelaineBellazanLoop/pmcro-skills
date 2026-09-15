@@ -1,0 +1,11 @@
+{
+  "checkpoint_id": "checkpoint-runtime-buildout-20260915",
+  "cycle_id": "cyc-runtime-buildout-20260915",
+  "last_completed_phase": "orchestrator",
+  "next_phase": "dotnet-runtime-scaffold",
+  "last_frame_id": "frame-runtime-buildout-20260915-orchestrator",
+  "last_frame_hash": null,
+  "pending_message_id": null,
+  "attempts": {"planner": 1, "maker": 1, "checker": 1, "reflector": 1, "orchestrator": 1},
+  "status": "resumable"
+}

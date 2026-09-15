@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "16b10b24-9d4b-4642-a4f5-fd1660984e8e",
+      "owner": "session",
+      "description": "wiring hooks and checkpoints",
+      "cycle_id": "cyc-runtime-buildout-20260915",
+      "opened_utc": "2026-09-15T10:48:26Z",
+      "closed_utc": "2026-09-15T10:50:54Z",
+      "outcome": "done",
+      "heartbeat_utc": "2026-09-15T10:48:26Z",
+      "touched": [
+        ".claude/settings.json"
+      ],
+      "note": "resource interface, skills, agent, claims, and editor gate accepted"
+    },
+    {
+      "claim_id": "ddd906c7-bc73-49ef-964f-197719a21539",
+      "owner": "session",
+      "description": "plugin hooks from pmcro-template, extensible MAF support folders, then the dotnet scaffold",
+      "cycle_id": "cyc-extensibility-20260915",
+      "opened_utc": "2026-09-15T10:52:42Z",
+      "closed_utc": "2026-09-15T10:57:02Z",
+      "outcome": "abandoned",
+      "heartbeat_utc": "2026-09-15T10:52:42Z",
+      "touched": [],
+      "note": "superseded by a new claim; the previous run did not release it"
+    },
+    {
+      "claim_id": "d0653eab-1292-4a9a-b0a3-3fff17ba050c",
+      "owner": "session",
+      "description": "marketplace refresh, then dotnet runtime with hook pipeline",
+      "cycle_id": "cyc-runtime-hooks-20260915",
+      "opened_utc": "2026-09-15T10:57:02Z",
+      "closed_utc": "2026-09-15T11:15:22Z",
+      "outcome": "done",
+      "heartbeat_utc": "2026-09-15T10:57:02Z",
+      "touched": [],
+      "note": "marketplace refreshed; dotnet governance stack building and green"
+    },
+    {
+      "claim_id": "8edae5c2-76c9-43e5-a18e-e377d6d68ae0",
+      "owner": "session",
+      "description": "unit of work, build all projects, decide extend-vs-fork for dotnet skills",
+      "cycle_id": "cyc-dotnet-stack-20260915",
+      "opened_utc": "2026-09-15T11:20:06Z",
+      "closed_utc": "2026-09-15T11:25:53Z",
+      "outcome": "done",
+      "heartbeat_utc": "2026-09-15T11:20:06Z",
+      "touched": [],
+      "note": "unit of work with typed properties; MAF checkpoint boundary settled; 9/9 dotnet tests"
+    },
+    {
+      "claim_id": "2894c2fe-2ae3-4a4e-8bde-8e9e297529e9",
+      "owner": "session",
+      "description": "finish pmcro-dotnet plugin; ground orchestrator-worker mapping onto MAF",
+      "cycle_id": "cyc-orchestrator-workers-20260915",
+      "opened_utc": "2026-09-15T11:27:44Z",
+      "closed_utc": "2026-09-15T11:36:51Z",
+      "outcome": "done",
+      "heartbeat_utc": "2026-09-15T11:27:44Z",
+      "touched": [],
+      "note": "workspace sandbox, Aspire parameter, entity scaffolder proven end to end"
+    }
+  ]
+}

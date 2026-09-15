@@ -1,6 +1,11 @@
 {
   "name": "pmcro",
-  "version": "0.1.0",
-  "description": "Bounded Planner-Maker-Checker-Reflector-Orchestrator lifecycle skills with typed envelopes, evidence checks, strategy selection, and audit trails.",
-  "skills": ["./skills/"]
+  "displayName": "PMCR-O",
+  "version": "0.2.0",
+  "description": "Bounded Planner-Maker-Checker-Reflector-Orchestrator lifecycle with typed envelopes, evidence checks, and append-only Trails, plus a policy-gated CRUD interface over control-plane resources and hooks that enforce the same policy where writes actually happen.",
+  "keywords": ["agents", "governance", "trails", "agentskills", "pmcro", "hooks"],
+  "license": "MIT",
+  "skills": ["./skills/"],
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json"
 }

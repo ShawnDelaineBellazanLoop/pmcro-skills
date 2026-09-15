@@ -4,6 +4,24 @@
     {"id": "ARCH-001", "rule": "Keep MAF skills, dotagent rules, and PMCRO runtime state in separate layers.", "source_frame": "frame-session-upgrade-001", "status": "active"},
     {"id": "ARCH-002", "rule": "Use typed phase messages instead of slash-command strings for agent-to-agent communication.", "source_frame": "frame-session-upgrade-001", "status": "active"},
     {"id": "ARCH-003", "rule": "Webhook ingress and message queues belong to the PMCRO runtime boundary.", "source_frame": "frame-session-upgrade-001", "status": "active"},
-    {"id": "ARCH-004", "rule": "ACCEPT requires independent Checker evidence and a verifiable postcondition.", "source_frame": "frame-session-upgrade-001", "status": "active"}
+    {"id": "ARCH-004", "rule": "ACCEPT requires independent Checker evidence and a verifiable postcondition.", "source_frame": "frame-session-upgrade-001", "status": "active"},
+    {"id": "ARCH-005", "rule": "Delivery gates (contract, routing, replay, attempts, approval) live in the dispatcher so every transport is governed identically.", "source_frame": "frame-phase-dispatch-20260915-reflector", "status": "active"},
+    {"id": "ARCH-006", "rule": "Runtime limits are read from .pmcro configuration and never accepted as caller arguments.", "source_frame": "frame-phase-dispatch-20260915-reflector", "status": "active"},
+    {"id": "ARCH-007", "rule": "Any message crossing an at-least-once transport carries an idempotency_key; the dispatch ledger suppresses replays.", "source_frame": "frame-phase-dispatch-20260915-reflector", "status": "active"},
+    {"id": "ARCH-008", "rule": "Control-plane scripts stay stdlib-only so validation runs where no package installs are possible.", "source_frame": "frame-phase-dispatch-20260915-reflector", "status": "active"},
+    {"id": "ARCH-009", "rule": "External ingress is untrusted by default: its message carries requires_approval, and adding an origin to trusted_ingress_sources is a governance change.", "source_frame": "frame-ingress-queue-20260915-reflector", "status": "active"},
+    {"id": "ARCH-010", "rule": "Ingress records SeedIntent confidence as low; only O-Mode excavation raises it.", "source_frame": "frame-ingress-queue-20260915-reflector", "status": "active"},
+    {"id": "ARCH-011", "rule": "Contract and routing refusals dead-letter immediately; only retryable refusals consume the retry budget.", "source_frame": "frame-ingress-queue-20260915-reflector", "status": "active"},
+    {"id": "ARCH-012", "rule": "A registry carrying paths declares the base they resolve against; adapters never guess between registry root and plugin root.", "source_frame": "frame-maf-host-20260915-reflector", "status": "active"},
+    {"id": "ARCH-013", "rule": "Every declared envelope type resolves to a .pmcro schema; an unmapped type is a hole where untyped state re-enters.", "source_frame": "frame-maf-host-20260915-reflector", "status": "active"},
+    {"id": "ARCH-014", "rule": "Tool authority is declared in skill frontmatter: 'tools' is what the skill executes, 'tool_authority' is deference to the Orchestrator.", "source_frame": "frame-maf-host-20260915-reflector", "status": "active"},
+    {"id": "ARCH-015", "rule": "Blockers recorded in an earlier cycle are re-probed before being inherited; the environment moves.", "source_frame": "frame-maf-host-20260915-reflector", "status": "active"},
+    {"id": "ARCH-016", "rule": "Frames written before a contract settled are listed in legacy-frames.json, never rewritten to validate.", "source_frame": "frame-package-repair-20260915-reflector", "status": "active"},
+    {"id": "ARCH-017", "rule": "Offline verification runs from .pmcro/tests/run_all.py so a cycle cannot accept on a partial check.", "source_frame": "frame-package-repair-20260915-reflector", "status": "active"},
+    {"id": "ARCH-018", "rule": "MANIFEST.sha256 is regenerated on every tree change; the Trail is never regenerated. Integrity records and evidence records follow opposite rules.", "source_frame": "frame-package-repair-20260915-reflector", "status": "active"},
+    {"id": "ARCH-019", "rule": "One policy table governs a resource everywhere: the script, the editor's Write and Edit tools, and the .NET runtime all read .pmcro/policies/resource-operations.json.", "source_frame": "frame-runtime-buildout-20260915-reflector", "status": "active"},
+    {"id": "ARCH-020", "rule": "A policy gate fails OPEN on its own defects and CLOSED only on policy; a guard that can break a session gets disabled, and then nothing is enforced.", "source_frame": "frame-runtime-buildout-20260915-reflector", "status": "active"},
+    {"id": "ARCH-021", "rule": "Work is claimed before it starts and heartbeated after each write; a checkpoint written only at cycle end is worth nothing to a machine that stops mid-cycle.", "source_frame": "frame-runtime-buildout-20260915-reflector", "status": "active"},
+    {"id": "ARCH-022", "rule": "An unreleased claim is retained as abandoned, never cleared: that a run did not finish is itself the evidence a resumer needs.", "source_frame": "frame-runtime-buildout-20260915-reflector", "status": "active"}
   ]
 }

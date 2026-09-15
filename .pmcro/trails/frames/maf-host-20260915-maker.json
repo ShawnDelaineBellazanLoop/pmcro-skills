@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-maf-host-20260915-maker",
+  "cycle_id": "cyc-maf-host-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Added .pmcro/scripts/validate_host_boundary.py: resolves registry paths from an explicit path_base (default skill-root, which removes the registry-or-plugin-root ambiguity in the adapter contract), rejects absolute paths and anything resolving outside the plugin, maps each declared envelope type to a .pmcro schema, checks MAF discoverability of every SKILL.md, and evaluates tool-authority declarations with 'tools' read as what a skill executes and 'tool_authority' read as deference to the Orchestrator. Vendored capability plugins are reported as EXTERNAL rather than judged. The report lists the three capabilities that cannot be checked without a live host and credentials.",
+  "evidence_refs": [".pmcro/scripts/validate_host_boundary.py"],
+  "source_refs": [".pmcro/trails/frames/maf-host-20260915-planner.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T11:16:00Z"
+}

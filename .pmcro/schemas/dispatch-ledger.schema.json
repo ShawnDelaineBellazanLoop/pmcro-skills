@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO DispatchLedger",
+  "description": "Append-only record of delivered PhaseMessages. Idempotency keys make redelivery from an at-least-once transport harmless, and attempt counts are derived from this file rather than trusted from a caller.",
+  "type": "object",
+  "required": ["version", "dispatches"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "dispatches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["message_id", "cycle_id", "source", "target", "message_type", "frame_ref", "payload_sha256", "dispatched_utc"],
+        "properties": {
+          "message_id": {"type": "string"},
+          "cycle_id": {"type": "string"},
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "message_type": {"type": "string"},
+          "idempotency_key": {"type": "string"},
+          "attempt": {"type": "integer", "minimum": 1},
+          "approved": {"type": "boolean"},
+          "frame_ref": {"type": "string"},
+          "payload_sha256": {"type": "string"},
+          "event_id": {"type": "string"},
+          "dispatched_utc": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

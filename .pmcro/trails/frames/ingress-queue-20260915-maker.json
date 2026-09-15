@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-ingress-queue-20260915-maker",
+  "cycle_id": "cyc-ingress-queue-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Added .pmcro/scripts/queue_adapter.py (pending/processing/done/held/dead states, atomic-rename durability, lease reclamation, bounded retries with dead letters, drain that delegates every decision to the dispatcher) and .pmcro/scripts/ingress.py (payload size bound, intent extraction, contract-valid SeedIntent at low confidence, delivery-id plus payload-hash idempotency key, requires_approval for untrusted origins). Extended pmcro.config.json with queue_lease_seconds, max_queue_attempts, max_ingress_bytes, and an empty trusted_ingress_sources allowlist; ignored .pmcro/queue as per-machine runtime state. Added .pmcro/tests/test_ingress_queue.py with ten gate tests.",
+  "evidence_refs": [".pmcro/scripts/queue_adapter.py", ".pmcro/scripts/ingress.py", ".pmcro/tests/test_ingress_queue.py", ".pmcro/templates/pmcro.config.json", ".gitignore"],
+  "source_refs": [".pmcro/trails/frames/ingress-queue-20260915-planner.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T10:44:00Z"
+}
