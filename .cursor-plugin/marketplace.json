@@ -18,6 +18,11 @@
       "name": "pmcro-csuite",
       "source": "./plugins/pmcro-csuite",
       "description": "C-suite executive harness for goals, governance, delegation, and PMCRO orchestration."
+    },
+    {
+      "name": "pmcro-dotnet",
+      "source": "./plugins/pmcro-dotnet",
+      "description": "House .NET patterns: the BaseEntity and generic repository stack with policy-gated CRUD and a unit of work, and the three-pillar MCP server layout. Complements the Microsoft dotnet plugins rather than replacing them."
     }
   ]
 }

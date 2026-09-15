@@ -47,7 +47,7 @@ AUTHORITY_SKILLS = {"orchestrator-agent", "pmcro-orchestrator", "agent-skills-op
 # the declaration rule - it plainly executes things - but it is reported, because
 # an ungoverned capability sitting in the same tree is exactly what should be
 # visible to whoever configures the host.
-GOVERNED_PLUGINS = {"pmcro", "pmcro-csuite", "pmcro-skill-creator"}
+GOVERNED_PLUGINS = {"pmcro", "pmcro-csuite", "pmcro-skill-creator", "pmcro-dotnet"}
 
 
 def read_frontmatter(path: pathlib.Path) -> dict[str, str]:

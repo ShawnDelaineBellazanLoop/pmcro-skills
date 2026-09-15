@@ -24,7 +24,11 @@ EXCLUDED_DIRS = {".git", ".vs", "node_modules", "__pycache__", ".pytest_cache"}
 # recipient is verifying, so that is a deliberate decision, not a side effect of
 # adding a generator.
 EXCLUDED_PATHS = {"MANIFEST.sha256", ".gitattributes", ".gitignore"}
-EXCLUDED_PREFIXES = (".pmcro/queue/",)
+# Runtime state, not published content. The queue holds per-machine jobs; state holds
+# the live claim and its heartbeat, which changes on every write the editor hook sees.
+# Covering either would make the manifest report itself stale during ordinary work, and a
+# check that always fails is a check people learn to ignore.
+EXCLUDED_PREFIXES = (".pmcro/queue/", ".pmcro/state/")
 
 
 def tracked_files(root: pathlib.Path) -> list[pathlib.Path]:

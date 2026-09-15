@@ -62,6 +62,18 @@
       "heartbeat_utc": "2026-09-15T11:27:44Z",
       "touched": [],
       "note": "workspace sandbox, Aspire parameter, entity scaffolder proven end to end"
+    },
+    {
+      "claim_id": "c16b2d15-a204-4b44-b6db-5cc9987ea12d",
+      "owner": "session",
+      "description": "finish pmcro-dotnet so it is installable",
+      "cycle_id": "cyc-dotnet-plugin-20260915",
+      "opened_utc": "2026-09-15T11:48:15Z",
+      "closed_utc": "2026-09-15T11:51:12Z",
+      "outcome": "done",
+      "heartbeat_utc": "2026-09-15T11:48:15Z",
+      "touched": [],
+      "note": "pmcro-dotnet installable; manifest excludes runtime state"
     }
   ]
 }

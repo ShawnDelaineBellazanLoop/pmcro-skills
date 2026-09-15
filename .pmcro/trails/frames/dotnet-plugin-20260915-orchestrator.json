@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-dotnet-plugin-20260915-orchestrator",
+  "cycle_id": "cyc-dotnet-plugin-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "ACCEPT. pmcro-dotnet is installable and carries a skill whose generator was already proven end to end by scaffolding TrailEvent into the runtime and compiling it. The plan for this cycle came from NEXT-SEED.md rather than a fresh Planner pass, which is what that seed exists for. Earned constraint: an integrity manifest must exclude runtime state, because a check that fails during ordinary work is a check people learn to ignore. Next bounded action: the mcp-server-project skill, carrying the archive's three-pillar layout as a dotnet new template in assets/.",
+  "evidence_refs": [".pmcro/trails/frames/dotnet-plugin-20260915-checker.json"],
+  "source_refs": [".pmcro/trails/handoffs/NEXT-SEED.md"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T14:38:00Z"
+}

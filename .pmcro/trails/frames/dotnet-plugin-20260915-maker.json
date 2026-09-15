@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-dotnet-plugin-20260915-maker",
+  "cycle_id": "cyc-dotnet-plugin-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Made pmcro-dotnet installable. Added .codex-plugin/plugin.json, version.json in Nerdbank pathspec form, README.md, the clean-architecture-generic-repository SKILL.md and references/layering.md, added pmcro-dotnet to GOVERNED_PLUGINS in validate_host_boundary.py, and registered it in all five marketplace manifests. Also fixed a defect found on the starting verification rather than introduced by it: .pmcro/state/ was covered by MANIFEST.sha256, so opening a claim or firing the heartbeat hook made the content manifest report itself stale during ordinary work. Runtime state is now excluded alongside .pmcro/queue/, for the reason already recorded there.",
+  "evidence_refs": ["plugins/pmcro-dotnet/skills/clean-architecture-generic-repository/SKILL.md", "plugins/pmcro-dotnet/skills/clean-architecture-generic-repository/references/layering.md", "plugins/pmcro-dotnet/README.md", ".pmcro/scripts/manifest.py"],
+  "source_refs": [".pmcro/trails/handoffs/NEXT-SEED.md", ".pmcro/trails/handoffs/RESUME.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T14:30:00Z"
+}

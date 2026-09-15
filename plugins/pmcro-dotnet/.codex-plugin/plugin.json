@@ -1,0 +1,9 @@
+{
+  "name": "pmcro-dotnet",
+  "displayName": "PMCR-O .NET Patterns",
+  "version": "0.1.0",
+  "description": "House .NET patterns for this codebase: the BaseEntity and generic repository stack with policy-gated CRUD and a unit of work, and the three-pillar MCP server project layout. Complements the Microsoft dotnet plugins rather than replacing them.",
+  "keywords": ["dotnet", "csharp", "clean-architecture", "repository", "mcp", "aspire"],
+  "license": "MIT",
+  "skills": ["./skills/"]
+}

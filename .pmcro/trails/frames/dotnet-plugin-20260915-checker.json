@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-dotnet-plugin-20260915-checker",
+  "cycle_id": "cyc-dotnet-plugin-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "PASS. python .pmcro/tests/run_all.py returned OVERALL PASS across eleven steps: 47 gate tests, host boundary preflight with zero FAIL and zero UNMAPPED now that pmcro-dotnet is governed and its skill declares tool_authority, scripts compile, five marketplace manifests synchronized with the new plugin entry, content manifest current, 127 JSON files parsed, 49 TrailFrames valid with 6 LEGACY, 9 checkpoints valid. The manifest fix was verified against the failure that prompted it: a claim no longer invalidates the content manifest. Not claimed: the mcp-server-project skill is still unbuilt and is listed in the plugin README as not yet built rather than implied to exist, and no eval.yaml exists for the new skill.",
+  "evidence_refs": [".pmcro/tests/run_all.py", ".pmcro/scripts/validate_host_boundary.py"],
+  "source_refs": [".pmcro/trails/frames/dotnet-plugin-20260915-maker.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T14:36:00Z"
+}
