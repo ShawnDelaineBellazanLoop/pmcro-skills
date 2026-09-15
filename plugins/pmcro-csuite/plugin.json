@@ -1,0 +1,6 @@
+{
+  "name": "pmcro-csuite",
+  "version": "0.1.0",
+  "description": "C-suite executive harness for high-level goals, governance, delegation, and PMCRO orchestration.",
+  "skills": ["./skills/"]
+}

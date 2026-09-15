@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-trail-20260915-orchestrator",
+  "cycle_id": "cyc-activate-trail-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "Keep the cycle resumable and continue with the next bounded action: validate the new frames and then connect runtime execution when the host is available.",
+  "evidence_refs": [".pmcro/trails/frames/activate-trail-20260915-reflector.json", ".pmcro/checkpoints/activate-trail-20260915.json"],
+  "source_refs": [".pmcro/schemas/checkpoint.schema.json", ".pmcro/trails/handoffs/SESSION_HANDOFF_2026-09-15.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T00:00:00Z"
+}

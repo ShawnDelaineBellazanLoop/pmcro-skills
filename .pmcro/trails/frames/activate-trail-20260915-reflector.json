@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-trail-20260915-reflector",
+  "cycle_id": "cyc-activate-trail-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Treat session requests as auditable cycle inputs; keep structural verification separate from runtime claims and carry pending host work into the next seed.",
+  "evidence_refs": [".pmcro/trails/frames/activate-trail-20260915-checker.json"],
+  "source_refs": [".pmcro/laws/forward-error-flow.md", "docs/trail-as-product.md"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

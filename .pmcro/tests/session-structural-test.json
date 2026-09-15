@@ -1,0 +1,15 @@
+{
+  "name": "session-structural-test",
+  "checks": [
+    "project root is pmcro-skills",
+    "marketplace lists skill-creator, pmcro, and pmcro-csuite",
+    "each published skill has SKILL.md",
+    "each linked resource exists",
+    "pmcro schemas include PhaseMessage and TrailFrame",
+    "Trail has planner, maker, checker, reflector, and orchestrator frames",
+    "Chief registry lists all Chiefs",
+    "only Orchestrator has operational tool authority"
+  ],
+  "runtime_status": "pending-python-node-dotnet",
+  "expected_verdict": "EXTEND"
+}

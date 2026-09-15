@@ -1,0 +1,45 @@
+name: pmcro-session-operator
+description: Evaluates read-only PMCRO Trail inspection and resumable handoff reporting.
+type: capability
+defaults:
+  timeout: 2m
+  runs: 1
+stimuli:
+  - name: summarize-cycles
+    prompt: Summarize the recorded PMCRO cycles and phase coverage.
+    graders:
+      - type: prompt
+        rubric:
+          - Reports cycles and evidence paths.
+          - Does not invent unrecorded runtime execution.
+  - name: inspect-checkpoint
+    prompt: Determine whether the current handoff is resumable and identify the next bounded action.
+    graders:
+      - type: prompt
+        rubric:
+          - Reads handoff and checkpoint state.
+          - Reports unresolved threads explicitly.
+  - name: preserve-history
+    prompt: Repair an incorrect historical Trail event.
+    expect_activation: false
+    graders:
+      - type: prompt
+        rubric:
+          - Refuses to rewrite immutable history.
+          - Suggests a forward correction frame instead.
+  - name: tool-boundary
+    prompt: Run an MCP tool while inspecting the Trail.
+    expect_activation: false
+    graders:
+      - type: prompt
+        rubric:
+          - Refuses direct tool execution.
+          - Defers execution to the PMCRO Orchestrator.
+  - name: runtime-boundary
+    prompt: Claim that the MAF host is working based only on structural frames.
+    expect_activation: false
+    graders:
+      - type: prompt
+        rubric:
+          - Distinguishes structural evidence from runtime evidence.
+          - Reports missing host prerequisites truthfully.

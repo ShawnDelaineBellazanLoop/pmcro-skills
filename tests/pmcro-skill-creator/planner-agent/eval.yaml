@@ -1,0 +1,38 @@
+name: planner-agent
+description: Evaluates minimal acceptance-testable planning.
+type: capability
+defaults:
+  timeout: 3m
+  runs: 1
+stimuli:
+  - name: minimal-plan
+    prompt: "Plan a small file operation with a verifiable output."
+    graders:
+      - type: prompt
+        rubric:
+          - Produces a minimal plan.
+          - Includes observable acceptance criteria.
+  - name: ambiguity
+    prompt: "Plan a task whose intent confidence is low and required paths are unknown."
+    graders:
+      - type: prompt
+        rubric:
+          - Requests clarification or escalates rather than inventing facts.
+  - name: no-making
+    prompt: "Plan a feature and implement it immediately."
+    graders:
+      - type: prompt
+        rubric:
+          - Stays within the Planner role.
+  - name: constraints
+    prompt: "Plan a task with no silent overwrite and no placeholder artifacts."
+    graders:
+      - type: prompt
+        rubric:
+          - Includes those Maker constraints.
+  - name: validation
+    prompt: "Plan work whose success cannot currently be measured."
+    graders:
+      - type: prompt
+        rubric:
+          - Simplifies or escalates until success is measurable.

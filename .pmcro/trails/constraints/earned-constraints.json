@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "constraints": [
+    {"id": "ARCH-001", "rule": "Keep MAF skills, dotagent rules, and PMCRO runtime state in separate layers.", "source_frame": "frame-session-upgrade-001", "status": "active"},
+    {"id": "ARCH-002", "rule": "Use typed phase messages instead of slash-command strings for agent-to-agent communication.", "source_frame": "frame-session-upgrade-001", "status": "active"},
+    {"id": "ARCH-003", "rule": "Webhook ingress and message queues belong to the PMCRO runtime boundary.", "source_frame": "frame-session-upgrade-001", "status": "active"},
+    {"id": "ARCH-004", "rule": "ACCEPT requires independent Checker evidence and a verifiable postcondition.", "source_frame": "frame-session-upgrade-001", "status": "active"}
+  ]
+}

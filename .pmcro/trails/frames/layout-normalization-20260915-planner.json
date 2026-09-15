@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-layout-normalization-20260915-planner",
+  "cycle_id": "cyc-layout-normalization-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Normalize the repository around .agents/rules, the pmcro-skill-creator plugin identity, and resolvable marketplace sources.",
+  "evidence_refs": ["user-request:continue-autonomous-folder-and-upgrade-repair"],
+  "source_refs": [".agents/rules/core-rules.md", ".agents/plugins/marketplace.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

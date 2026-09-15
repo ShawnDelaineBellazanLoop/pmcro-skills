@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO TrailEvent",
+  "type": "object",
+  "required": ["event_id", "cycle_id", "phase", "event_type", "timestamp_utc", "payload_sha256"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "cycle_id": {"type": "string"},
+    "phase": {"enum": ["planner", "maker", "checker", "reflector", "orchestrator", "system"]},
+    "event_type": {"type": "string"},
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

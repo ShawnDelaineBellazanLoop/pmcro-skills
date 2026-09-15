@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-trail-20260915-planner",
+  "cycle_id": "cyc-activate-trail-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Activate PMCRO for this request by recording the work as a bounded Planner, Maker, Checker, Reflector, and Orchestrator cycle.",
+  "evidence_refs": ["user-request:add-this-to-project-trail-frame-activate-pmcro-loop"],
+  "source_refs": [".pmcro/schemas/trail-frame.schema.json", ".pmcro/trails/handoffs/SESSION_HANDOFF_2026-09-15.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

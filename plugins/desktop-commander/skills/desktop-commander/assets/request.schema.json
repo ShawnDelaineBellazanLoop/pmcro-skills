@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Desktop Commander operation request",
+  "type": "object",
+  "required": ["operation"],
+  "properties": {
+    "operation": {"type": "string", "enum": ["dump_skill_folder", "dump_single_skill", "zip_skill", "chain_dump_and_zip"]},
+    "skills_root": {"type": "string"},
+    "skill_path": {"type": "string"},
+    "skill_name": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "output": {"type": "string"},
+    "output_dir": {"type": "string"},
+    "force": {"type": "boolean", "default": false},
+    "dry_run": {"type": "boolean", "default": false}
+  },
+  "additionalProperties": false
+}

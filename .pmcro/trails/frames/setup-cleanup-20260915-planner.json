@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-setup-cleanup-20260915-planner",
+  "cycle_id": "cyc-setup-cleanup-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Finish project setup by removing duplicate legacy paths and verifying the canonical plugins, .agents rules, marketplace, and PMCRO control plane.",
+  "evidence_refs": ["user-request:finish-setup"],
+  "source_refs": [".agents/rules/core-rules.md"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

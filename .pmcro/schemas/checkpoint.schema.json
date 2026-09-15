@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO Checkpoint",
+  "type": "object",
+  "required": ["checkpoint_id", "cycle_id", "last_completed_phase", "next_phase", "last_frame_id", "status"],
+  "properties": {
+    "checkpoint_id": {"type": "string"},
+    "cycle_id": {"type": "string"},
+    "last_completed_phase": {"type": "string"},
+    "next_phase": {"type": "string"},
+    "last_frame_id": {"type": "string"},
+    "last_frame_hash": {"type": ["string", "null"]},
+    "pending_message_id": {"type": ["string", "null"]},
+    "attempts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "status": {"enum": ["resumable", "blocked", "completed", "escalated", "interrupted"]}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+{
+  "required": ["SKILL.md"],
+  "conditional": {
+    "eval.yaml": "required when model-invocable",
+    "scripts/": "required when deterministic execution exists",
+    "references/": "required when detailed policy exists",
+    "assets/": "required when stable machine data exists"
+  },
+  "frontmatter": ["name", "description"],
+  "recommended_frontmatter": ["license", "compatibility", "metadata"],
+  "limits": {"skill_md_max_lines": 500, "name_max_characters": 64, "description_max_characters": 1024}
+}

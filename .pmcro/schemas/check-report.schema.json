@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO CheckReport",
+  "type": "object",
+  "required": ["cycle_id", "phase", "verdict", "scores", "findings"],
+  "properties": {
+    "cycle_id": {"type": "string"},
+    "phase": {"const": "checker"},
+    "verdict": {"enum": ["ACCEPT", "LOOP", "REJECT", "ESCALATE", "INTERRUPT"]},
+    "scores": {"type": "object", "required": ["completeness", "correctness", "alignment", "executability", "coherence", "no_stubs"], "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+    "findings": {"type": "array", "items": {"type": "object", "required": ["severity", "message", "evidence"], "properties": {"severity": {"enum": ["info", "warning", "error"]}, "message": {"type": "string"}, "evidence": {"type": "string"}}, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}

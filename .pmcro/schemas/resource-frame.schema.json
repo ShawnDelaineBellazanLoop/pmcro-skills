@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO ResourceFrame",
+  "type": "object",
+  "required": ["type", "frame_id", "summary", "resource_refs", "confidence"],
+  "properties": {
+    "type": {"const": "ResourceFrame"},
+    "frame_id": {"type": "string"},
+    "summary": {"type": "string", "minLength": 1},
+    "resource_refs": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "validated": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

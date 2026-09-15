@@ -1,0 +1,15 @@
+{
+  "max_cycles": 5,
+  "max_phase_attempts": 2,
+  "max_wall_time_seconds": 1800,
+  "max_output_bytes": 10485760,
+  "require_approval_for": [
+    "destructive_filesystem_operation",
+    "production_deployment",
+    "secret_access",
+    "governance_change",
+    "untrusted_script"
+  ],
+  "allowed_verdicts": ["ACCEPT", "EXTEND", "LOOP", "ESCALATE", "INTERRUPT"],
+  "trail_path": ".pmcro/trails/events.jsonl"
+}

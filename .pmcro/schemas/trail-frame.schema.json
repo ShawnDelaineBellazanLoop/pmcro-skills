@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO TrailFrame",
+  "type": "object",
+  "required": ["type", "frame_id", "cycle_id", "phase", "frame_type", "summary", "created_utc"],
+  "properties": {
+    "type": {"const": "TrailFrame"},
+    "frame_id": {"type": "string"},
+    "cycle_id": {"type": "string"},
+    "phase": {"type": "string"},
+    "frame_type": {"enum": ["intent", "goal", "research", "plan", "tool-request", "tool-result", "artifact", "check", "reflection", "decision", "handoff"]},
+    "summary": {"type": "string", "minLength": 1},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "payload_sha256": {"type": "string"},
+    "previous_frame_hash": {"type": ["string", "null"]},
+    "created_utc": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

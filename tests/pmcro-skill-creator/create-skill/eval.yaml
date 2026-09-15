@@ -1,0 +1,59 @@
+name: create-skill
+description: Evaluates creation of MAF-compatible Agent Skills.
+type: capability
+defaults:
+  timeout: 3m
+  runs: 1
+stimuli:
+  - name: create-package
+    prompt: |
+      Create a new skill for a deterministic file conversion workflow.
+    graders:
+      - type: output-contains
+        config:
+          substring: "SKILL.md"
+      - type: prompt
+        rubric:
+          - The response defines a concrete purpose and workflow.
+          - The response separates scripts, references, and assets.
+  - name: local-model-resources
+    prompt: |
+      Create a skill whose scripts use bundled schemas and defaults instead of model-generated templates.
+    graders:
+      - type: prompt
+        rubric:
+          - The response uses assets for stable machine data.
+          - The response uses a request object for variable inputs.
+  - name: dotagent-boundary
+    prompt: |
+      Add repository-wide rules without mixing them into an executable skill.
+    graders:
+      - type: prompt
+        rubric:
+          - The response places repository rules under .agents/rules.
+          - The response keeps SKILL.md in a skill package.
+  - name: validation
+    prompt: |
+      Validate a newly created skill and report failures truthfully.
+    graders:
+      - type: prompt
+        rubric:
+          - The response checks frontmatter, links, and line count.
+          - The response does not claim runtime success without execution evidence.
+  - name: pmcro
+    prompt: |
+      Implement a Planner Maker Checker Reflector Orchestrator lifecycle.
+    graders:
+      - type: prompt
+        rubric:
+          - The response uses typed phase envelopes.
+          - Failures flow forward to Reflector before Orchestrator routing.
+          - The design has bounded retries and approval gates.
+  - name: out-of-scope
+    expect_activation: false
+    prompt: |
+      Diagnose a production skill that already fails its evaluation without changing its package structure.
+    graders:
+      - type: prompt
+        rubric:
+          - The response distinguishes quality improvement from create-skill.

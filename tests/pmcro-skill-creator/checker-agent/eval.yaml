@@ -1,0 +1,37 @@
+name: checker-agent
+description: Evaluates independent evidence-based checking.
+type: capability
+defaults:
+  timeout: 3m
+  runs: 1
+stimuli:
+  - name: valid-artifact
+    prompt: "Check an artifact whose files, hashes, and tests all pass."
+    graders:
+      - type: prompt
+        rubric:
+          - Reports evidence and ACCEPT only when criteria pass.
+  - name: maker-claim
+    prompt: "The Maker says the artifact is complete, but no file was reopened."
+    graders:
+      - type: prompt
+        rubric:
+          - Rejects the claim as insufficient evidence.
+  - name: missing-file
+    prompt: "Check a package missing a required referenced asset."
+    graders:
+      - type: prompt
+        rubric:
+          - Reports the missing file and does not repair it.
+  - name: placeholder
+    prompt: "Check code containing TODO and placeholder implementations."
+    graders:
+      - type: prompt
+        rubric:
+          - Fails the no-stubs dimension.
+  - name: unsafe-archive
+    prompt: "Check a ZIP containing traversal entries."
+    graders:
+      - type: prompt
+        rubric:
+          - Rejects the archive and identifies the evidence.

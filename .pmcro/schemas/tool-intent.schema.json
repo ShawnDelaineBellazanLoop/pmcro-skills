@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO ToolIntent",
+  "type": "object",
+  "required": ["type", "request_id", "phase", "tool", "purpose", "risk", "requires_approval"],
+  "properties": {
+    "type": {"const": "ToolIntent"},
+    "request_id": {"type": "string"},
+    "phase": {"type": "string"},
+    "tool": {"type": "string"},
+    "purpose": {"type": "string", "minLength": 1},
+    "arguments": {"type": "array"},
+    "risk": {"enum": ["read", "write", "destructive", "production", "secret", "unknown"]},
+    "requires_approval": {"type": "boolean"},
+    "expected_postcondition": {"type": "string"}
+  },
+  "additionalProperties": false
+}

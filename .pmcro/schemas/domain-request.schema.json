@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO DomainRequest",
+  "type": "object",
+  "required": ["type", "request_id", "cycle_id", "source_domain", "target_domain", "request_type", "question", "required_output"],
+  "properties": {
+    "type": {"const": "DomainRequest"},
+    "request_id": {"type": "string"},
+    "cycle_id": {"type": "string"},
+    "source_domain": {"type": "string"},
+    "target_domain": {"type": "string"},
+    "request_type": {"enum": ["research", "review", "risk-assessment", "resource-check", "decision-input"]},
+    "question": {"type": "string", "minLength": 1},
+    "required_output": {"type": "string"},
+    "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
+    "requires_approval": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "frame_id": "frame-session-upgrade-001",
+  "cycle_id": "cyc-session-20260915",
+  "phase": "reflector",
+  "event_type": "session-summary",
+  "summary": "Designed and upgraded a MAF-compatible plugin marketplace with dotagent rules, a PMCRO control plane, phase skills, agent projections, strategy families, and a Trail record.",
+  "decisions": [
+    "Use create-skill as the canonical skill name inside the skill-creator plugin.",
+    "Keep skill-creator and pmcro as separate plugins.",
+    "Use SKILL.md packages for MAF discovery and agents/ as host-specific projections.",
+    "Use typed envelopes and forward-only Planner-Maker-Checker-Reflector-Orchestrator routing.",
+    "Use bounded reasoning strategy families without storing private chain-of-thought.",
+    "Rename the umbrella repository to pmcro-skill-creator."
+  ],
+  "evidence_refs": [
+    "W:/AgentSkills/skill-creator/.pmcro/",
+    "W:/AgentSkills/skill-creator/plugins/skill-creator/",
+    "W:/AgentSkills/skill-creator/plugins/pmcro/",
+    "W:/AgentSkills/skill-creator/tests/"
+  ],
+  "earned_constraints": [
+    "MAF skills, dotagent rules, and PMCRO runtime state remain separate layers.",
+    "Phase transitions use typed structured messages, not slash-command text.",
+    "Webhook ingress and message queues belong to the PMCRO runtime, not individual phase skills.",
+    "The Checker must use independent ground-truth evidence before ACCEPT."
+  ],
+  "next_seed": "Add durable queue and webhook adapters, then connect the phase skills to a .NET MAF host with explicit script approval and Trail persistence.",
+  "created_utc": "2026-09-15T00:00:00Z"
+}

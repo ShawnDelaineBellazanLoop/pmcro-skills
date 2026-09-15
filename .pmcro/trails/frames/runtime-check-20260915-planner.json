@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-check-20260915-planner",
+  "cycle_id": "cyc-runtime-check-20260915",
+  "phase": "planner",
+  "frame_type": "plan",
+  "summary": "Run available runtime and structural checks for manifests, Python scripts, JSON contracts, and Desktop Commander dump/archive workflows.",
+  "evidence_refs": [".pmcro/checkpoints/setup-cleanup-20260915.json"],
+  "source_refs": [".pmcro/scripts/synchronize_manifests.py", "plugins/desktop-commander/skills/desktop-commander/scripts/chain_dump_and_zip.py"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

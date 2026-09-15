@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-layout-normalization-20260915-checker",
+  "cycle_id": "cyc-layout-normalization-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "Compact layout validation passed: required folders exist, marketplace sources resolve, manifests agree, and live obsolete references are absent.",
+  "evidence_refs": ["validation:LAYOUT_CHECK_PASS", ".agents/plugins/marketplace.json", "plugins/pmcro-skill-creator/plugin.json"],
+  "source_refs": [".pmcro/schemas/trail-frame.schema.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-layout-normalization-20260915-orchestrator",
+  "cycle_id": "cyc-layout-normalization-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "Accept the layout normalization and continue with the next bounded runtime-validation cycle; do not rewrite historical Trail references.",
+  "evidence_refs": [".pmcro/trails/frames/layout-normalization-20260915-reflector.json", ".pmcro/checkpoints/layout-normalization-20260915.json"],
+  "source_refs": [".pmcro/schemas/checkpoint.schema.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T00:00:00Z"
+}

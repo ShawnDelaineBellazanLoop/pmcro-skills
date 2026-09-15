@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-session-operator-20260915-orchestrator",
+  "cycle_id": "cyc-runtime-check-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "Retain pmcro-session-operator as a local read-only Trail inspection skill and leave loop outcome selection to the PMCRO Orchestrator.",
+  "evidence_refs": [".agents/skills/pmcro-session-operator/SKILL.md", ".agents/skills/pmcro-session-operator/eval.yaml"],
+  "source_refs": [".pmcro/checkpoints/runtime-check-20260915.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T00:00:00Z"
+}

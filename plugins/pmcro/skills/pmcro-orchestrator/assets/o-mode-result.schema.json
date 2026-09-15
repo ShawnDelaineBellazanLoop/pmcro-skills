@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "O-Mode result",
+  "type": "object",
+  "required": ["mode", "surface_intent", "truest_intent", "confidence", "strategy_id", "selection_reason", "plan"],
+  "properties": {
+    "mode": {"const": "O-Mode"},
+    "surface_intent": {"type": "string", "minLength": 1},
+    "truest_intent": {"type": "string", "minLength": 1},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "required": {"type": "array", "items": {"type": "string"}},
+    "desired": {"type": "array", "items": {"type": "string"}},
+    "speculative": {"type": "array", "items": {"type": "string"}},
+    "blocked": {"type": "array", "items": {"type": "string"}},
+    "out_of_scope": {"type": "array", "items": {"type": "string"}},
+    "strategy_id": {"type": "string"},
+    "selection_reason": {"type": "string", "minLength": 1},
+    "plan": {"type": "object"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "requires_approval": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

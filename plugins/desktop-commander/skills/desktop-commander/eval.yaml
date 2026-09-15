@@ -1,0 +1,31 @@
+name: desktop-commander
+version: 1
+cases:
+  - id: dump-all
+    prompt: "Dump every skill under W:\\AgentSkills\\.agents\\skills to a deterministic text file without overwriting an existing output."
+    expect:
+      - use: scripts/dump_skill_folder.py
+      - require: --skills-root
+      - require: --output
+      - require: --force only for intentional overwrite
+  - id: dump-one
+    prompt: "Export only the desktop-commander skill folder to a text file."
+    expect:
+      - use: scripts/dump_single_skill.py
+      - verify: SKILL.md exists
+  - id: zip
+    prompt: "Create a reproducible ZIP of one skill and prove it is safe."
+    expect:
+      - use: scripts/zip_skill.py
+      - verify: archive reopened
+      - verify: traversal and duplicate members rejected
+  - id: chain
+    prompt: "Generate skills_dump.txt and then skills_dump.zip, stopping if the dump fails."
+    expect:
+      - use: scripts/chain_dump_and_zip.py
+      - verify: dump exists and is non-empty
+  - id: fallback
+    prompt: "The runtime cannot execute Python. Give me a truthful manual fallback."
+    expect:
+      - report: prerequisite unavailable
+      - forbid: claim success

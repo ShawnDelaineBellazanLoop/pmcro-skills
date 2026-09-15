@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-runtime-check-20260915-checker",
+  "cycle_id": "cyc-runtime-check-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "Runtime checks passed for 72 JSON contracts, five marketplace manifests, Python compilation, and Desktop Commander archive postconditions; .NET SDK and native MAF/MCP host remain unavailable.",
+  "evidence_refs": ["validation:JSON_CONTRACT_CHECK_PASS_FILES_72", "validation:VALID_5_MARKETPLACE_MANIFESTS", "validation:DUMP_ZIP_POSTCONDITION_PASS"],
+  "source_refs": [".pmcro/schemas/check-report.schema.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

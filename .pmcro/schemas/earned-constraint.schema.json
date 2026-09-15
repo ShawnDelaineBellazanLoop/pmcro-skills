@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO Earned Constraint",
+  "type": "object",
+  "required": ["constraint_id", "status", "rule", "source_frame", "confidence", "scope"],
+  "properties": {
+    "constraint_id": {"type": "string"},
+    "status": {"enum": ["candidate", "review-required", "active", "probationary", "suspended", "retired", "superseded"]},
+    "rule": {"type": "string", "minLength": 1},
+    "source_frame": {"type": "string"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "scope": {"type": "string"},
+    "enforced_at": {"type": "array", "items": {"enum": ["planner-preflight", "maker-contract", "orchestrator-policy", "checker-regression", "reflector-review", "csuite-governance"]}},
+    "promoted_by": {"type": "array", "items": {"type": "string"}},
+    "supersedes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

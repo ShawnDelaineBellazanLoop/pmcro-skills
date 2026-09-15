@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-setup-cleanup-20260915-maker",
+  "cycle_id": "cyc-setup-cleanup-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Removed the legacy tests/skill-creator tree, retained plugins as the published source of truth, and added the .agents/skills boundary note.",
+  "evidence_refs": [".agents/skills/README.md", "plugins/desktop-commander/skills/desktop-commander/SKILL.md"],
+  "source_refs": ["tests/pmcro-skill-creator/", ".agents/plugins/marketplace.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

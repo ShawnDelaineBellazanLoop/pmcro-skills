@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO PhaseMessage",
+  "type": "object",
+  "required": ["type", "message_id", "cycle_id", "source", "target", "message_type"],
+  "properties": {
+    "type": {"const": "PhaseMessage"},
+    "message_id": {"type": "string"},
+    "cycle_id": {"type": "string"},
+    "source": {"type": "string"},
+    "target": {"type": "string"},
+    "message_type": {"type": "string"},
+    "payload_ref": {"type": "string"},
+    "frame_ref": {"type": "string"},
+    "idempotency_key": {"type": "string"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "requires_approval": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

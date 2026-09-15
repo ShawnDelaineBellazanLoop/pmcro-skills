@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO IntentEnvelope",
+  "type": "object",
+  "required": ["cycle_id", "surface_intent", "truest_intent", "confidence", "phase", "status"],
+  "properties": {
+    "cycle_id": {"type": "string", "minLength": 1},
+    "surface_intent": {"type": "string", "minLength": 1},
+    "truest_intent": {"type": "string", "minLength": 1},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "phase": {"const": "planner"},
+    "status": {"enum": ["ready", "needs-clarification", "blocked"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

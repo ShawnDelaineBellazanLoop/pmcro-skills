@@ -1,0 +1,5 @@
+# Add the real GitHub user or team owner before publishing.
+# /plugins/pmcro-skill-creator/ @your-github-team
+# /tests/skill-creator/ @your-github-team
+# /plugins/pmcro-skill-creator/ @your-github-team
+# /tests/pmcro-skill-creator/ @your-github-team

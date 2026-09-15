@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO CapabilityRecord",
+  "type": "object",
+  "required": ["capability_id", "kind", "name", "status"],
+  "properties": {
+    "capability_id": {"type": "string"},
+    "kind": {"enum": ["plugin", "skill", "resource", "script", "mcp-tool"]},
+    "name": {"type": "string"},
+    "source": {"type": "string"},
+    "status": {"enum": ["discovered", "trusted", "selected", "approved", "verified", "blocked"]},
+    "risk": {"enum": ["read", "write", "destructive", "production", "secret", "unknown"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

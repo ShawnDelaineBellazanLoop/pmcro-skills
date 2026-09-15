@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-layout-normalization-20260915-reflector",
+  "cycle_id": "cyc-layout-normalization-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Treat folder names and marketplace source paths as executable contracts; preserve obsolete paths only inside historical Trail evidence.",
+  "evidence_refs": [".pmcro/trails/frames/layout-normalization-20260915-checker.json"],
+  "source_refs": [".agents/rules/README.md", "docs/resource-placement.md"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

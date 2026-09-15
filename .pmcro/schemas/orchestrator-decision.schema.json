@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO OrchestratorDecision",
+  "type": "object",
+  "required": ["cycle_id", "phase", "verdict", "reason", "next_action"],
+  "properties": {
+    "cycle_id": {"type": "string"},
+    "phase": {"const": "orchestrator"},
+    "verdict": {"enum": ["ACCEPT", "EXTEND", "LOOP", "ESCALATE", "INTERRUPT"]},
+    "reason": {"type": "string", "minLength": 1},
+    "next_action": {"type": "string", "minLength": 1},
+    "requires_approval": {"type": "boolean"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

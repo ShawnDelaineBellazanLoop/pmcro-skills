@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-setup-cleanup-20260915-reflector",
+  "cycle_id": "cyc-setup-cleanup-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Keep published skills in plugins and reserve .agents/skills for local-only development skills; never maintain duplicate published copies without an explicit sync process.",
+  "evidence_refs": [".pmcro/trails/frames/setup-cleanup-20260915-checker.json"],
+  "source_refs": [".agents/skills/README.md"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

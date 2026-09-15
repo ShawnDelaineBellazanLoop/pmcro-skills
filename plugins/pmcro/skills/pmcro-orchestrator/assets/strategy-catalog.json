@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "selection_rule": "O-Mode selects the least complex strategy that can satisfy acceptance criteria and evidence requirements.",
+  "families": [
+    {"id": "plan-execute-verify", "when": "linear task with clear acceptance criteria", "steps": ["plan", "execute", "verify"]},
+    {"id": "react", "when": "environment requires iterative observation and tool use", "steps": ["observe", "act", "verify", "repeat"]},
+    {"id": "decomposition", "when": "task has separable independent parts", "steps": ["split", "execute-parts", "aggregate", "verify"]},
+    {"id": "dependency-graph", "when": "steps have ordering or shared dependencies", "steps": ["model-graph", "topological-execute", "verify"]},
+    {"id": "branch-select", "when": "bounded alternatives need comparison", "steps": ["generate-options", "score", "select", "verify"]},
+    {"id": "debate-referee", "when": "independent proposals improve a high-impact decision", "steps": ["propose", "critique", "referee", "verify"]},
+    {"id": "retrieve-ground", "when": "repository or external facts determine correctness", "steps": ["retrieve", "cite", "act", "verify"]},
+    {"id": "refine-check", "when": "an existing artifact fails a measurable gate", "steps": ["measure", "change", "re-measure", "accept-or-escalate"]},
+    {"id": "o-mode", "when": "the seed is ambiguous and must be refined before phase dispatch", "steps": ["normalize", "excavate", "ground", "classify", "select", "plan", "dispatch"]}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-setup-cleanup-20260915-checker",
+  "cycle_id": "cyc-setup-cleanup-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "Project setup check passed: required paths exist, marketplace sources resolve, five manifests agree, and stale live references are absent.",
+  "evidence_refs": ["validation:PROJECT_SETUP_CHECK_PASS"],
+  "source_refs": [".pmcro/schemas/trail-frame.schema.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

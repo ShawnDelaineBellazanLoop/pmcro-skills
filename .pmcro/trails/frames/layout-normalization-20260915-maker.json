@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-layout-normalization-20260915-maker",
+  "cycle_id": "cyc-layout-normalization-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Moved repository rules into .agents/rules, renamed the authoring plugin directory to pmcro-skill-creator, and synchronized live metadata paths.",
+  "evidence_refs": [".agents/rules/", "plugins/pmcro-skill-creator/", "README.md"],
+  "source_refs": [".github/CODEOWNERS", ".pmcro/scripts/synchronize_manifests.py"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

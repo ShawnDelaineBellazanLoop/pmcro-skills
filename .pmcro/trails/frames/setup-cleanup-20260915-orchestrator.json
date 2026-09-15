@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-setup-cleanup-20260915-orchestrator",
+  "cycle_id": "cyc-setup-cleanup-20260915",
+  "phase": "orchestrator",
+  "frame_type": "decision",
+  "summary": "Accept setup cleanup and leave the project ready for the user to open at W:/AgentSkills/pmcro-skills.",
+  "evidence_refs": [".pmcro/trails/frames/setup-cleanup-20260915-checker.json", ".pmcro/checkpoints/setup-cleanup-20260915.json"],
+  "source_refs": ["README.md", ".agents/plugins/marketplace.json"],
+  "confidence": "high",
+  "created_utc": "2026-09-15T00:00:00Z"
+}

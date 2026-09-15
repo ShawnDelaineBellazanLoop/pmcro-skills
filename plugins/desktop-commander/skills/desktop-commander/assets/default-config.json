@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "excluded_directory_names": [".git", ".vs", "__pycache__", ".pytest_cache"],
+  "excluded_suffixes": [".zip", ".tmp", ".temp", ".pyc"],
+  "text_encoding": "utf-8",
+  "line_ending": "lf",
+  "follow_symlinks": false,
+  "overwrite_by_default": false
+}

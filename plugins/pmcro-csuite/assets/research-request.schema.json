@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO ResearchRequest",
+  "type": "object",
+  "required": ["type", "request_id", "question", "required_output", "acceptance_criteria"],
+  "properties": {
+    "type": {"const": "ResearchRequest"},
+    "request_id": {"type": "string"},
+    "question": {"type": "string"},
+    "required_output": {"const": "ResearchFrame"},
+    "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "source_domain": {"type": "string"},
+    "target_domain": {"type": "string"}
+  },
+  "additionalProperties": false
+}

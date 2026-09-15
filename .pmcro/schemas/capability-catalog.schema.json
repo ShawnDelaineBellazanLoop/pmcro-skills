@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO CapabilityCatalog",
+  "type": "object",
+  "required": ["catalog_id", "generated_utc", "capabilities"],
+  "properties": {
+    "catalog_id": {"type": "string"},
+    "generated_utc": {"type": "string", "format": "date-time"},
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["capability_id", "kind", "name", "source", "status", "risk", "allowed_callers"],
+        "properties": {
+          "capability_id": {"type": "string"},
+          "kind": {"enum": ["marketplace", "plugin", "skill", "resource", "script", "mcp-server", "mcp-tool", "host-tool", "codeact", "queue-adapter", "webhook-adapter", "filesystem-adapter", "process-adapter"]},
+          "name": {"type": "string"},
+          "source": {"type": "string"},
+          "provider": {"type": ["string", "null"]},
+          "plugin": {"type": ["string", "null"]},
+          "status": {"enum": ["discovered", "described", "trusted", "selected", "approved", "executed", "verified", "blocked"]},
+          "risk": {"enum": ["read", "network-read", "write", "destructive", "production", "secret", "unknown"]},
+          "allowed_callers": {"type": "array", "items": {"type": "string"}},
+          "requires_approval": {"type": "boolean"},
+          "resource_refs": {"type": "array", "items": {"type": "string"}},
+          "script_refs": {"type": "array", "items": {"type": "string"}},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

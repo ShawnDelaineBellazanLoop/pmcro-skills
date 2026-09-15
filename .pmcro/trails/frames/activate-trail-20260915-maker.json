@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-trail-20260915-maker",
+  "cycle_id": "cyc-activate-trail-20260915",
+  "phase": "maker",
+  "frame_type": "artifact",
+  "summary": "Created a new activation cycle with durable phase frames and a resumable checkpoint under the project PMCRO control plane.",
+  "evidence_refs": [".pmcro/trails/frames/activate-trail-20260915-planner.json", ".pmcro/checkpoints/activate-trail-20260915.json"],
+  "source_refs": [".pmcro/trails/", ".pmcro/schemas/checkpoint.schema.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

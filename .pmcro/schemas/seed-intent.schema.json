@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO SeedIntent",
+  "type": "object",
+  "required": ["type", "source", "intent", "confidence"],
+  "properties": {
+    "type": {"const": "SeedIntent"},
+    "source": {"enum": ["user", "reflector", "orchestrator", "chief", "webhook"]},
+    "intent": {"type": "string", "minLength": 1},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "strategy_hint": {"type": ["string", "null"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]}
+  },
+  "additionalProperties": false
+}

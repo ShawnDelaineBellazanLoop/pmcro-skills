@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO PlanningContext",
+  "type": "object",
+  "required": ["type", "intent", "goals", "laws", "constraints", "resource_frames"],
+  "properties": {
+    "type": {"const": "PlanningContext"},
+    "intent": {"type": "object"},
+    "goals": {"type": "array", "items": {"type": "string"}},
+    "laws": {"type": "array", "items": {"type": "string"}},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "resource_frames": {"type": "array", "items": {"type": "string"}},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "checkpoint_ref": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

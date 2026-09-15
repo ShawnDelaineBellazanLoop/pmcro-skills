@@ -1,0 +1,7 @@
+{
+  "operation": "chain_dump_and_zip",
+  "skills_root": "W:\\AgentSkills\\.agents\\skills",
+  "output_dir": "W:\\AgentSkills\\.agents\\skills\\output",
+  "force": false,
+  "dry_run": true
+}

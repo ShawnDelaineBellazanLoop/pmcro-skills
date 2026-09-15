@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-activate-trail-20260915-checker",
+  "cycle_id": "cyc-activate-trail-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "The activation artifacts are structurally present and JSON-shaped; live MAF, MCP, queue, webhook, and model execution remain pending host validation.",
+  "evidence_refs": [".pmcro/trails/frames/activate-trail-20260915-planner.json", ".pmcro/trails/frames/activate-trail-20260915-maker.json"],
+  "source_refs": [".pmcro/schemas/trail-frame.schema.json", ".pmcro/schemas/checkpoint.schema.json"],
+  "confidence": "medium",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

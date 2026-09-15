@@ -1,0 +1,11 @@
+{
+  "trail_id": "pmcro-skill-creator-session",
+  "schema_version": "1.0.0",
+  "purpose": "Evidence-oriented record of repository design and implementation decisions.",
+  "event_store": "../events.jsonl",
+  "frame_store": "../frames/",
+  "constraint_store": "../constraints/earned-constraints.json",
+  "handoff_store": "../handoffs/",
+  "privacy": "No private chain-of-thought; store summaries, evidence, decisions, hashes, and constraints only.",
+  "integrity": "Each event includes a payload hash and references its cycle."
+}

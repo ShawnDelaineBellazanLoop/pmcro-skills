@@ -1,0 +1,13 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-session-operator-20260915-reflector",
+  "cycle_id": "cyc-runtime-check-20260915",
+  "phase": "reflector",
+  "frame_type": "reflection",
+  "summary": "Keep the local PMCRO session operator read-only; it may inspect Trail state, while the Orchestrator decides whether the loop accepts, extends, loops, escalates, or interrupts.",
+  "evidence_refs": [".agents/skills/pmcro-session-operator/SKILL.md", "validation:SESSION_OPERATOR_CHECK_PASS"],
+  "source_refs": [".pmcro/laws/forward-error-flow.md", ".pmcro/schemas/orchestrator-decision.schema.json"],
+  "confidence": "high",
+  "previous_frame_hash": null,
+  "created_utc": "2026-09-15T00:00:00Z"
+}

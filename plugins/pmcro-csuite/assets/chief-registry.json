@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "framework_plugin": "pmcro",
+  "orchestrator_mode": "O-Mode",
+  "tool_authority": "pmcro-orchestrator-only",
+  "chiefs": [
+    {"id": "chief-executive-officer", "focus": "mission, final priorities, human escalation"},
+    {"id": "chief-strategy-officer", "focus": "strategy, outcomes, trade-offs"},
+    {"id": "chief-technology-officer", "focus": "architecture, models, feasibility, integrations"},
+    {"id": "chief-operating-officer", "focus": "execution, dependencies, queues, delivery"},
+    {"id": "chief-product-officer", "focus": "capability roadmap, user value, acceptance outcomes"},
+    {"id": "chief-financial-resource-officer", "focus": "budget, compute, model cost, rate limits"},
+    {"id": "chief-risk-compliance-officer", "focus": "risk, compliance, governance, approvals"},
+    {"id": "chief-information-security-officer", "focus": "identity, secrets, sandboxing, supply chain"},
+    {"id": "chief-knowledge-officer", "focus": "validated resources, provenance, Trail evidence"},
+    {"id": "chief-learning-evaluation-officer", "focus": "evaluations, constraints, strategy performance"},
+    {"id": "chief-of-staff", "focus": "agenda, decisions, conflicts, executive handoffs"}
+  ]
+}

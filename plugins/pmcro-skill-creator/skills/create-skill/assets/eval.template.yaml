@@ -1,0 +1,23 @@
+name: skill-name
+version: 1
+cases:
+  - id: routing-positive
+    prompt: "A request that must activate the skill."
+    expect:
+      - activate: true
+  - id: routing-negative
+    prompt: "A neighboring request that must not activate the skill."
+    expect:
+      - activate: false
+  - id: workflow
+    prompt: "A normal task using the skill."
+    expect:
+      - follow: numbered-workflow
+  - id: validation
+    prompt: "A task with invalid or missing input."
+    expect:
+      - report: truthful-failure
+  - id: resources
+    prompt: "A task requiring a bundled resource or script."
+    expect:
+      - use: relative-bundled-resource

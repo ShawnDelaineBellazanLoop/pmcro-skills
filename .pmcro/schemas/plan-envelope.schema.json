@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMCRO PlanEnvelope",
+  "type": "object",
+  "required": ["cycle_id", "steps", "maker_contract", "phase"],
+  "properties": {
+    "cycle_id": {"type": "string"},
+    "phase": {"const": "planner"},
+    "steps": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "action", "acceptance_criteria"], "properties": {"id": {"type": "string"}, "action": {"type": "string"}, "target": {"type": "string"}, "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"type": "string"}}}, "additionalProperties": false}},
+    "maker_contract": {"type": "object", "required": ["no_silent_stubs", "no_silent_overwrite"], "properties": {"no_silent_stubs": {"type": "boolean"}, "no_silent_overwrite": {"type": "boolean"}}, "additionalProperties": false}
+  },
+  "additionalProperties": false
+}

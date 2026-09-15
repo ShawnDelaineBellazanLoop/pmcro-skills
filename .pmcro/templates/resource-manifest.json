@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "resources": [
+    {
+      "id": "resource-id",
+      "path_or_url": "relative/path/or/https-url",
+      "kind": "schema|reference|asset|script|external-reference",
+      "trust": "local-validated|trusted-external|unverified",
+      "status": "available|blocked|stale",
+      "sha256": null,
+      "validated_by": null,
+      "validated_utc": null,
+      "allowed_for_planning": false,
+      "notes": ""
+    }
+  ]
+}
