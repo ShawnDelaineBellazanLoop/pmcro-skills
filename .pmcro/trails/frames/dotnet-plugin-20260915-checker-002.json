@@ -1,0 +1,12 @@
+{
+  "type": "TrailFrame",
+  "frame_id": "frame-dotnet-plugin-20260915-checker-002",
+  "cycle_id": "cyc-dotnet-plugin-20260915",
+  "phase": "checker",
+  "frame_type": "check",
+  "summary": "Corrects the sequence around frame-dotnet-plugin-20260915-orchestrator, which recorded ACCEPT before this was known. On the commit run, run_all.py printed OVERALL: FAIL, and the commit and push proceeded anyway. Cause of the proceeding: the shell chain gated the commit on findstr matching the string OVERALL, which matches PASS and FAIL alike, instead of on run_all's exit code. That is a process defect in how the check was invoked, not in the check. Cause of the FAIL itself: unknown and not reproducible - three subsequent runs pass, the last verified by exit code rather than by output text, and no step named a failing file. It is the second non-reproducible failure this session from run_all's nested subprocess spawning, after the 0xC0000005 crash recorded in frame-runtime-buildout-20260915-checker-002. The committed tree is verified green as it stands; the ACCEPT is sound in substance but was reached without the evidence being read. Recorded rather than quietly re-run, because a gate that was bypassed once will be bypassed again if the bypass is not written down.",
+  "evidence_refs": [".pmcro/tests/run_all.py", ".pmcro/trails/frames/runtime-buildout-20260915-checker-002.json"],
+  "source_refs": [".pmcro/trails/frames/dotnet-plugin-20260915-checker.json", ".pmcro/trails/frames/dotnet-plugin-20260915-orchestrator.json"],
+  "confidence": "medium",
+  "created_utc": "2026-09-15T14:48:00Z"
+}
